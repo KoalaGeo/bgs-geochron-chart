@@ -30,7 +30,11 @@ export default defineNuxtConfig({
     },
   },
   app: {
-    baseURL: '/chart/',
+    // Read the env var here, not only at runtime: the prerenderer takes its
+    // base from this value, so a different NUXT_APP_BASE_URL (e.g. a fork's
+    // /<repo>/ on GitHub Pages) otherwise fails with "Cannot find any path
+    // matching /chart".
+    baseURL: process.env.NUXT_APP_BASE_URL || '/chart/',
       head: {
         title: chartSource === "bgs" ? "BGS Geochronological Chart" : "International Chronostratigraphic Chart",
         meta:[
