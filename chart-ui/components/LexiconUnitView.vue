@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import {
+  bgsPidHref,
   fmtMa,
   splitProse,
   type GeochronDivision,
@@ -392,8 +393,8 @@ function openAgeOnChart(code: string | null) {
         <section class="bgs-card">
           <h2 class="h-small">Linked data</h2>
           <p>
-            <a class="mono-link" :href="unit.iri" target="_blank" rel="noreferrer">
-              {{ unit.iri.replace('http://', '') }}
+            <a class="mono-link" :href="bgsPidHref(unit.iri)" target="_blank" rel="noreferrer">
+              {{ unit.iri.replace(/^https?:\/\//, '').replace(/\.html$/i, '') }}
             </a>
           </p>
           <p class="muted small" style="margin-bottom: 0;">

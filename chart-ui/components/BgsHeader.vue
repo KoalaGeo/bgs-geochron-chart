@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
+import { bgsPidHref, useBgsVocabs } from '~/utils/bgsVocabs'
+
 export type BgsTab = 'geochron' | 'lexicon' | 'rcs' | 'browse' | 'about'
 
 defineProps<{
@@ -10,6 +13,11 @@ const emit = defineEmits<{
 }>()
 
 const base = useRuntimeConfig().app.baseURL
+const { ensureAboutLoaded, vocabFileUrl } = useBgsVocabs()
+
+onMounted(() => {
+  ensureAboutLoaded().catch(() => {})
+})
 
 const tabs: { id: BgsTab; label: string; href: string }[] = [
   { id: 'geochron', label: 'Geochronological Chart', href: '?tab=geochron' },
@@ -55,7 +63,9 @@ const tabs: { id: BgsTab; label: string; href: string }[] = [
       </p>
       <p>
         Source vocabulary:
-        <a href="http://data.bgs.ac.uk/ref/Geochronology/Division">http://data.bgs.ac.uk/ref/Geochronology/Division</a>.
+        <a :href="bgsPidHref('http://data.bgs.ac.uk/ref/Geochronology/Division')" target="_blank" rel="noreferrer">http://data.bgs.ac.uk/ref/Geochronology/Division</a>
+        (<a :href="vocabFileUrl('Geochronology.ttl')" target="_blank" rel="noreferrer">Geochronology.ttl</a> ·
+        <a :href="vocabFileUrl('Geochronology.csv')" target="_blank" rel="noreferrer">Geochronology.csv</a>).
         Select any unit for its definition, identifier and Lexicon rock units of that age.
         Chart data: <a :href="`${base}data/bgs-chart.ttl`">Turtle</a>,
         <a :href="`${base}data/bgs-chart-report.json`">build report</a>

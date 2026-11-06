@@ -11,6 +11,7 @@ const {
   loadingAbout,
   aboutError,
   ensureAboutLoaded,
+  vocabFileUrl,
 } = useBgsVocabs()
 
 onMounted(async () => {
@@ -167,6 +168,7 @@ function pct(n: number, d: number): string {
             <thead>
               <tr>
                 <th scope="col">File</th>
+                <th scope="col">Downloads</th>
                 <th scope="col">Title</th>
                 <th scope="col">Export version</th>
                 <th scope="col" class="num">Concepts</th>
@@ -176,6 +178,11 @@ function pct(n: number, d: number): string {
             <tbody>
               <tr v-for="(m, file) in buildMeta.vocabularies || {}" :key="file">
                 <td><code>{{ file }}</code></td>
+                <td>
+                  <a :href="vocabFileUrl(String(file))" target="_blank" rel="noreferrer">TTL</a>
+                  ·
+                  <a :href="vocabFileUrl(String(file).replace(/\.ttl$/i, '.csv'))" target="_blank" rel="noreferrer">CSV</a>
+                </td>
                 <td>{{ m.title || '' }}</td>
                 <td>{{ m.version || 'unknown' }}</td>
                 <td class="num">{{ m.concepts || '' }}</td>

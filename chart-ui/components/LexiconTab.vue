@@ -2,6 +2,7 @@
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRouteQuery } from '@vueuse/router'
 import {
+  bgsPidHref,
   downloadCsv,
   fmtMa,
   useBgsVocabs,
@@ -26,8 +27,10 @@ const {
   lexiconError,
   ensureLexiconLoaded,
   ensureRcsLoaded,
+  ensureAboutLoaded,
   loadUnitDetail,
   getGeochronDescendants,
+  vocabFileUrl,
 } = useBgsVocabs()
 
 // URL-mirrored filter and unit state
@@ -56,7 +59,11 @@ const loadingUnit = ref(false)
 const unitError = ref<string | null>(null)
 
 onMounted(async () => {
-  await Promise.all([ensureLexiconLoaded(), ensureRcsLoaded().catch(() => {})])
+  await Promise.all([
+    ensureLexiconLoaded(),
+    ensureRcsLoaded().catch(() => {}),
+    ensureAboutLoaded().catch(() => {}),
+  ])
   applyLegacyParams()
   if (selectedUnitCode.value) {
     await fetchSelectedUnit(selectedUnitCode.value)
@@ -319,6 +326,13 @@ function handleFilterAgeFromUnit(code: string) {
           BGS definitions of the rock units that appear on BGS maps and in BGS publications.
           Type in the column headers to filter, or combine with age, rock type and description search below.
         </p>
+        <p class="muted small" style="margin-top: 6px; margin-bottom: 0;">
+          Source vocabulary:
+          <a :href="bgsPidHref('http://data.bgs.ac.uk/ref/Lexicon/NamedRockUnit')" target="_blank" rel="noreferrer">http://data.bgs.ac.uk/ref/Lexicon/NamedRockUnit</a>
+          · Bulk files:
+          <a :href="vocabFileUrl('NamedRockUnit.ttl')" target="_blank" rel="noreferrer">NamedRockUnit.ttl</a>,
+          <a :href="vocabFileUrl('NamedRockUnit.csv')" target="_blank" rel="noreferrer">NamedRockUnit.csv</a>
+        </p>
       </header>
 
       <section class="bgs-card controls" aria-label="Filters">
@@ -373,7 +387,14 @@ function handleFilterAgeFromUnit(code: string) {
         </div>
         <div class="control control-actions">
           <button type="button" class="btn btn-ghost" @click="clearFilters">Clear all filters</button>
-          <button type="button" class="btn" @click="exportCsv">Download CSV</button>
+          <button type="button" class="btn" title="Export currently filtered table rows as CSV" @click="exportCsv">Export table CSV</button>
+          <a
+            class="btn btn-ghost"
+            :href="vocabFileUrl('NamedRockUnit.csv')"
+            target="_blank"
+            rel="noreferrer"
+            title="Download full NamedRockUnit.csv from BGS vocabularies repository"
+          >Vocabulary CSV</a>
         </div>
 
         <p v-if="filterLith.trim() || (filterMap.trim() && !anyMapCode)" class="control-wide muted small">

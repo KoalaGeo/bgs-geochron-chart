@@ -1,6 +1,7 @@
 {
   "builtAt": "2026-11-06T00:00:00.000Z",
   "source": "bgs/fixtures (offline dev fallback; regenerated in CI from BritishGeologicalSurvey/vocabularies)",
+  "vocabBaseUrl": "https://raw.githubusercontent.com/BritishGeologicalSurvey/vocabularies/main/prez/vocabs/",
   "lexiconVersion": "2026-11-06T00:00:00Z",
   "lexiconFingerprint": null,
   "units": 6,

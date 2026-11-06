@@ -1,0 +1,10 @@
+.git
+.github
+**/node_modules
+chart-ui/.nuxt
+chart-ui/.output
+chart-ui/dist
+bgs/build/.cache
+**/__pycache__
+*.pyc
+.DS_Store

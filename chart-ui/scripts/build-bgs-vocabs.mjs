@@ -93,9 +93,11 @@ export async function buildBgsVocabs(opts = {}) {
     throw new Error(`Only ${rcs.size} RCS codes (MIN_RCS=${minRcs}); refusing to build.`);
   }
 
+  const normalizedBaseUrl = vocabBaseUrl.endsWith('/') ? vocabBaseUrl : vocabBaseUrl + '/';
   const buildInfo = {
     builtAt: new Date().toISOString(),
     source: opts.sourceLabel || env.SOURCE_LABEL || vocabDir || vocabBaseUrl,
+    vocabBaseUrl: normalizedBaseUrl,
     lexiconVersion: graphs.lexicon.meta.version || null,
     lexiconFingerprint: graphs.lexicon.meta.fingerprint || null,
     units: units.size,

@@ -113,6 +113,7 @@ export interface CoverageReport {
 export interface BuildMetadata {
   builtAt: string
   source: string
+  vocabBaseUrl?: string
   lexiconVersion: string | null
   lexiconFingerprint: string | null
   units: number
@@ -124,6 +125,24 @@ export interface BuildMetadata {
     triples?: string
     fingerprint?: string
   }>
+}
+
+export const DEFAULT_VOCAB_BASE_URL =
+  'https://raw.githubusercontent.com/BritishGeologicalSurvey/vocabularies/main/prez/vocabs/'
+
+/**
+ * Append `.html` to BGS Linked Data PIDs (`http(s)://data.bgs.ac.uk/...`) for the link href
+ * so dereferencing in a browser opens the HTML representation while the visible text stays clean.
+ */
+export function bgsPidHref(iri: string | null | undefined): string {
+  if (!iri) return ''
+  const trimmed = String(iri).trim().replace(/\/+$/, '')
+  if (/^https?:\/\/data\.bgs\.ac\.uk\/(id|ref)\//i.test(trimmed)) {
+    if (!/\.(html|ttl|nt|rdf|json|jsonld|csv)$/i.test(trimmed)) {
+      return `${trimmed}.html`
+    }
+  }
+  return trimmed
 }
 
 export function unitBucketKey(code = ''): string {
@@ -423,6 +442,12 @@ export function useBgsVocabs() {
     return aboutLoadPromise
   }
 
+  function vocabFileUrl(filename: string): string {
+    const rawBase = buildMetaCache.value?.vocabBaseUrl || DEFAULT_VOCAB_BASE_URL
+    const normalized = rawBase.endsWith('/') ? rawBase : `${rawBase}/`
+    return `${normalized}${filename.replace(/^\/+/, '')}`
+  }
+
   return {
     lexiconRows: lexiconRowsCache,
     lexiconByCode: lexiconByCodeCache,
@@ -444,5 +469,6 @@ export function useBgsVocabs() {
     ensureAboutLoaded,
     loadUnitDetail,
     getGeochronDescendants,
+    vocabFileUrl,
   }
 }

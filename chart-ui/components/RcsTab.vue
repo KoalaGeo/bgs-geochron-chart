@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRouteQuery } from '@vueuse/router'
-import { downloadCsv, useBgsVocabs, type RcsRow } from '~/utils/bgsVocabs'
+import { bgsPidHref, downloadCsv, useBgsVocabs, type RcsRow } from '~/utils/bgsVocabs'
 
 const emit = defineEmits<{
   (e: 'openLexiconLith', code: string): void
@@ -13,6 +13,8 @@ const {
   loadingRcs,
   rcsError,
   ensureRcsLoaded,
+  ensureAboutLoaded,
+  vocabFileUrl,
 } = useBgsVocabs()
 
 const selectedCode = useRouteQuery<string>('rcsCode', '')
@@ -42,7 +44,7 @@ const showObsolete = computed({
 })
 
 onMounted(async () => {
-  await ensureRcsLoaded()
+  await Promise.all([ensureRcsLoaded(), ensureAboutLoaded().catch(() => {})])
   const clean = (v: string) => (v || '').trim() === '%' ? '' : (v || '').trim()
   if (clean(legacyRcsDesc.value) && !filterColName.value) {
     filterColName.value = clean(legacyRcsDesc.value)
@@ -191,6 +193,13 @@ function handleRowClick(row: RcsRow) {
         The approved names and codes BGS uses for rocks and sediments at the scale of an exposure,
         hand specimen or thin section. Type in the column headers to filter, and select a row for its full definition.
       </p>
+      <p class="muted small" style="margin-top: 6px; margin-bottom: 0;">
+        Source vocabulary:
+        <a :href="bgsPidHref('http://data.bgs.ac.uk/ref/EarthMaterialClass/RockClassAll')" target="_blank" rel="noreferrer">http://data.bgs.ac.uk/ref/EarthMaterialClass/RockClassAll</a>
+        · Bulk files:
+        <a :href="vocabFileUrl('RockClassAll.ttl')" target="_blank" rel="noreferrer">RockClassAll.ttl</a>,
+        <a :href="vocabFileUrl('RockClassAll.csv')" target="_blank" rel="noreferrer">RockClassAll.csv</a>
+      </p>
     </header>
 
     <div v-if="rcsError" class="bgs-card notice">
@@ -218,7 +227,14 @@ function handleRowClick(row: RcsRow) {
           </div>
           <div class="control control-actions">
             <button type="button" class="btn btn-ghost" @click="clearFilters">Clear</button>
-            <button type="button" class="btn" @click="exportCsv">Download CSV</button>
+            <button type="button" class="btn" title="Export currently filtered table rows as CSV" @click="exportCsv">Export table CSV</button>
+            <a
+              class="btn btn-ghost"
+              :href="vocabFileUrl('RockClassAll.csv')"
+              target="_blank"
+              rel="noreferrer"
+              title="Download full RockClassAll.csv from BGS vocabularies repository"
+            >Vocabulary CSV</a>
           </div>
         </section>
 
@@ -424,7 +440,7 @@ function handleRowClick(row: RcsRow) {
             <dd>
               <a
                 class="mono-link"
-                :href="`http://data.bgs.ac.uk/id/EarthMaterialClass/RockClassAll/${encodeURIComponent(selectedRow.code)}`"
+                :href="bgsPidHref(`http://data.bgs.ac.uk/id/EarthMaterialClass/RockClassAll/${encodeURIComponent(selectedRow.code)}`)"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -432,8 +448,8 @@ function handleRowClick(row: RcsRow) {
               </a>
               <template v-if="selectedRow.sameAs">
                 <br />
-                <a class="mono-link" :href="selectedRow.sameAs" target="_blank" rel="noreferrer">
-                  {{ selectedRow.sameAs.replace('http://', '') }}
+                <a class="mono-link" :href="bgsPidHref(selectedRow.sameAs)" target="_blank" rel="noreferrer">
+                  {{ selectedRow.sameAs.replace(/^https?:\/\//, '').replace(/\.html$/i, '') }}
                 </a>
               </template>
             </dd>

@@ -1,0 +1,74 @@
+services:
+  # -------------------------------------------------------------------------
+  # Production-like static build served by nginx on http://localhost:8080
+  # Usage:
+  #   docker compose up --build
+  #   FETCH_VOCABS=false docker compose up --build   # fast offline build
+  # -------------------------------------------------------------------------
+  web:
+    build:
+      context: .
+      target: runtime
+      args:
+        CHART_SOURCE: ${CHART_SOURCE:-bgs}
+        BASE_URL: ${BASE_URL:-/}
+        FETCH_VOCABS: ${FETCH_VOCABS:-true}
+        VOCAB_BASE_URL: ${VOCAB_BASE_URL:-https://raw.githubusercontent.com/BritishGeologicalSurvey/vocabularies/main/prez/vocabs/}
+        SOURCE_LABEL: ${SOURCE_LABEL:-BritishGeologicalSurvey/vocabularies@main}
+        MIN_UNITS: ${MIN_UNITS:-1000}
+        MIN_RCS: ${MIN_RCS:-500}
+        CACHE_BUST: ${CACHE_BUST:-0}
+    ports:
+      - "${PORT:-8080}:80"
+    restart: unless-stopped
+
+  # -------------------------------------------------------------------------
+  # Hot-reload Nuxt development server on http://localhost:3000
+  # Usage:
+  #   docker compose --profile dev up --build dev
+  # -------------------------------------------------------------------------
+  dev:
+    profiles: ["dev"]
+    build:
+      context: .
+      target: dev
+    environment:
+      CHART_SOURCE: ${CHART_SOURCE:-bgs}
+      NUXT_APP_BASE_URL: ${BASE_URL:-/}
+    ports:
+      - "${DEV_PORT:-3000}:3000"
+    volumes:
+      - ./chart-ui:/app/chart-ui
+      - /app/chart-ui/node_modules
+      - ./bgs:/app/bgs
+      - ./chart.ttl:/app/chart.ttl:ro
+
+  # -------------------------------------------------------------------------
+  # One-shot vocabulary downloader & data builder into ./bgs/build on host
+  # Usage:
+  #   docker compose --profile data run --rm build-data
+  # -------------------------------------------------------------------------
+  build-data:
+    profiles: ["data"]
+    build:
+      context: .
+      target: base
+    working_dir: /app/chart-ui
+    environment:
+      CHART_SOURCE: bgs
+      VOCAB_BASE_URL: ${VOCAB_BASE_URL:-https://raw.githubusercontent.com/BritishGeologicalSurvey/vocabularies/main/prez/vocabs/}
+      SOURCE_LABEL: ${SOURCE_LABEL:-BritishGeologicalSurvey/vocabularies@main}
+      MIN_UNITS: ${MIN_UNITS:-1000}
+      MIN_RCS: ${MIN_RCS:-500}
+    volumes:
+      - ./bgs:/app/bgs
+      - ./chart-ui/scripts:/app/chart-ui/scripts:ro
+    command: >
+      sh -c "
+        node --test scripts/test-bgs-vocabs.mjs &&
+        node scripts/build-bgs-vocabs.mjs &&
+        python3 ../bgs/build_bgs_chart.py
+          --ttl ../bgs/build/.cache/vocabs/Geochronology.ttl
+          --source-label \"$${SOURCE_LABEL} Geochronology.ttl\" &&
+        node scripts/check-chart-data.mjs
+      "

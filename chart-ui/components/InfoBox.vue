@@ -2,6 +2,7 @@
 import { computed } from 'vue';
 import { type chartNode } from '~/utils/util';
 import { useLabelContext } from '~/utils/label';
+import { bgsPidHref } from '~/utils/bgsVocabs';
 
 const props = defineProps<{
     node: chartNode,
@@ -62,7 +63,7 @@ const ages = computed(() => {
                 </tr>
                 <tr>
                     <th>Identifier</th>
-                    <td><a :href="props.node.id" target="_blank" rel="noreferrer">{{ props.node.id }}</a></td>
+                    <td><a :href="bgsPidHref(props.node.id)" target="_blank" rel="noreferrer">{{ props.node.id.replace(/\.html$/i, '') }}</a></td>
                 </tr>
 
                 <tr v-if="props.node.broader && props.node.broader.length > 0">

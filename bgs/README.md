@@ -53,7 +53,25 @@ Optional repository variables (**Settings → Secrets and variables → Actions 
 
 The deployed site serves all generated data under `<base>/data/` (`bgs-chart.ttl`, `bgs-chart-report.json`, `lexicon-index.json`, `units/*.json`, `rcs.json`, `geochronology.json`, `coverage.json`, `build.json`).
 
-## Build the data
+## Local testing with Docker
+
+A multi-stage `Dockerfile` and `docker-compose.yml` at the repository root let you build and test the full BGS portal without installing Node, pnpm, or Python on the host.
+
+```bash
+# 1. Build and serve the full static site (fetches live BGS vocabularies -> http://localhost:8080)
+docker compose up --build
+
+# 2. Fast offline build using the committed sample data in bgs/build/ (-> http://localhost:8080)
+FETCH_VOCABS=false docker compose up --build
+
+# 3. Hot-reload Nuxt dev server with local files mounted (-> http://localhost:3000)
+docker compose --profile dev up --build dev
+
+# 4. Refresh ./bgs/build/ on the host from the live BGS vocabularies
+docker compose --profile data run --rm build-data
+```
+
+## Build the data (without Docker)
 
 ### 1. Geochronological Chart RDF (`bgs/build/bgs-chart.ttl`)
 
