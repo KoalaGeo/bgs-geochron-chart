@@ -5,9 +5,7 @@
     <StratigraphyFooter />
   </template>
   <template v-else>
-    <BgsHeader class="no-print" />
-    <main id="main-content"><DynamicChart /></main>
-    <BgsFooter />
+    <BgsApp />
   </template>
 </template>
 <script setup lang="ts">

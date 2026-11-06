@@ -60,8 +60,11 @@ jobs:
           sha=$(git ls-remote "https://github.com/${BGS_VOCABS_REPO}" \
                 "refs/heads/${BGS_VOCABS_REF}" "refs/tags/${BGS_VOCABS_REF}" | head -1 | cut -f1)
           sha=${sha:-$BGS_VOCABS_REF}   # already a commit id
+          vocab_dir="$(dirname "$BGS_GEOCHRON_PATH")"
           echo "url=https://raw.githubusercontent.com/${BGS_VOCABS_REPO}/${sha}/${BGS_GEOCHRON_PATH}" >> "$GITHUB_OUTPUT"
+          echo "vocab_base_url=https://raw.githubusercontent.com/${BGS_VOCABS_REPO}/${sha}/${vocab_dir}/" >> "$GITHUB_OUTPUT"
           echo "label=${BGS_VOCABS_REPO}@${sha:0:7} ${BGS_GEOCHRON_PATH}" >> "$GITHUB_OUTPUT"
+          echo "vocabs_label=${BGS_VOCABS_REPO}@${sha:0:7} ${vocab_dir}/" >> "$GITHUB_OUTPUT"
 
       - name: Build chart data
         env:
@@ -84,6 +87,17 @@ jobs:
       - name: Install locked chart dependencies
         working-directory: chart-ui
         run: pnpm install --frozen-lockfile
+
+      - name: Test Lexicon and RCS builder
+        working-directory: chart-ui
+        run: node --test scripts/test-bgs-vocabs.mjs
+
+      - name: Build Lexicon and RCS data
+        working-directory: chart-ui
+        env:
+          VOCAB_BASE_URL: ${{ steps.source.outputs.vocab_base_url }}
+          SOURCE_LABEL: ${{ steps.source.outputs.vocabs_label }}
+        run: node scripts/build-bgs-vocabs.mjs
 
       - name: Validate chart data
         working-directory: chart-ui

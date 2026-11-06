@@ -1,0 +1,34 @@
+{
+  "lexicon": {
+    "total": 6,
+    "current": 4,
+    "fields": [
+      { "field": "Name (prefLabel)", "expected": "present", "all": 6, "current": 4 },
+      { "field": "Rank", "expected": "present", "all": 4, "current": 4 },
+      { "field": "Oldest / youngest age", "expected": "present", "all": 2, "current": 2 },
+      { "field": "Lithology (RCS codes)", "expected": "present", "all": 2, "current": 2 },
+      { "field": "Lithological description", "expected": "present", "all": 2, "current": 2 },
+      { "field": "Lower boundary", "expected": "present", "all": 1, "current": 1 },
+      { "field": "Upper boundary", "expected": "present", "all": 1, "current": 1 },
+      { "field": "Thickness", "expected": "present", "all": 1, "current": 1 },
+      { "field": "Parent unit", "expected": "present", "all": 2, "current": 2 },
+      { "field": "Alternative names", "expected": "partial", "all": 1, "current": 1 },
+      { "field": "Lexicon status code (e.g. \"Full\")", "expected": "missing", "all": 1, "current": 1 },
+      { "field": "Preferred map code", "expected": "missing", "all": 1, "current": 1 },
+      { "field": "Geographical limits", "expected": "missing", "all": 1, "current": 1 },
+      { "field": "Stratotypes / type localities", "expected": "missing", "all": 1, "current": 1 },
+      { "field": "References", "expected": "missing", "all": 1, "current": 1 },
+      { "field": "1:50k map sheets", "expected": "missing", "all": 1, "current": 1 }
+    ]
+  },
+  "rcs": {
+    "total": 8,
+    "current": 7,
+    "fields": [
+      { "field": "Name", "expected": "present", "all": 8, "current": 7 },
+      { "field": "Definition (not just the name repeated or inverted)", "expected": "partial", "all": 4, "current": 4 },
+      { "field": "Parent class", "expected": "present", "all": 1, "current": 1 },
+      { "field": "Qualifiers (Q1–Q4)", "expected": "missing", "all": 0, "current": 0 }
+    ]
+  }
+}

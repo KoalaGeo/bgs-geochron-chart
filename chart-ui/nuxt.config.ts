@@ -7,7 +7,9 @@ const chartSource = process.env.CHART_SOURCE === "bgs" ? "bgs" : "ics"
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  css: ['~/assets/ics-theme.css'],
+  css: chartSource === "bgs"
+    ? ['~/assets/ics-theme.css', '~/assets/bgs-site.css']
+    : ['~/assets/ics-theme.css'],
   compatibilityDate: '2026-06-23',
   ssr:false,
   runtimeConfig: {
@@ -36,7 +38,7 @@ export default defineNuxtConfig({
     // matching /chart".
     baseURL: process.env.NUXT_APP_BASE_URL || '/chart/',
       head: {
-        title: chartSource === "bgs" ? "BGS Geochronological Chart" : "International Chronostratigraphic Chart",
+        title: chartSource === "bgs" ? "BGS Geochronology, Lexicon & Rock Classification" : "International Chronostratigraphic Chart",
         meta:[
 {charset: "utf-8"}
         ],

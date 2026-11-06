@@ -1,0 +1,121 @@
+{
+  "cols": [
+    "code",
+    "name",
+    "type",
+    "obsolete",
+    "parents",
+    "children",
+    "definition",
+    "units",
+    "qualifiers",
+    "sameAs",
+    "indexName"
+  ],
+  "rows": [
+    [
+      "AEOLTE",
+      "Aeolianite (where cemented)",
+      "Rock name",
+      1,
+      "",
+      "",
+      "",
+      0,
+      "",
+      "http://data.bgs.ac.uk/id/EarthMaterialClass/RockName/AEOLTE",
+      ""
+    ],
+    [
+      "AGTT",
+      "Agglomerate and tuffite",
+      "Composite",
+      0,
+      "",
+      "",
+      "",
+      0,
+      "",
+      "http://data.bgs.ac.uk/id/EarthMaterialClass/RockComposite/AGTT",
+      ""
+    ],
+    [
+      "FELAB",
+      "Albite felsite",
+      "Rock name",
+      0,
+      "",
+      "",
+      "",
+      0,
+      "",
+      "http://data.bgs.ac.uk/id/EarthMaterialClass/RockName/FELAB",
+      "Felsite, albite"
+    ],
+    [
+      "BAALK",
+      "Alkali basalt",
+      "Rock name",
+      0,
+      "",
+      "",
+      "A type of basalt.",
+      0,
+      "",
+      "http://data.bgs.ac.uk/id/EarthMaterialClass/RockName/BAALK",
+      "Basalt, alkali"
+    ],
+    [
+      "BA",
+      "Basalt",
+      "Rock name",
+      0,
+      "",
+      "",
+      "A fine-grained mafic igneous rock.",
+      1,
+      "",
+      "http://data.bgs.ac.uk/id/EarthMaterialClass/RockName/BA",
+      ""
+    ],
+    [
+      "MDST",
+      "Mudstone",
+      "Rock name",
+      0,
+      "",
+      "",
+      "An argillaceous sedimentary rock.",
+      1,
+      "",
+      "http://data.bgs.ac.uk/id/EarthMaterialClass/RockName/MDST",
+      ""
+    ],
+    [
+      "TR",
+      "Trachyte",
+      "Rock name",
+      0,
+      "TRR",
+      "",
+      "A type of trachytic-rock.",
+      1,
+      "",
+      "http://data.bgs.ac.uk/id/EarthMaterialClass/RockName/TR",
+      ""
+    ],
+    [
+      "TRR",
+      "Trachytic-rock",
+      "Rock name",
+      0,
+      "",
+      "TR",
+      "",
+      0,
+      "",
+      "http://data.bgs.ac.uk/id/EarthMaterialClass/RockName/TRR",
+      ""
+    ]
+  ]
+}

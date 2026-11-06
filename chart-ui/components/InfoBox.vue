@@ -10,7 +10,16 @@ const props = defineProps<{
 const emit = defineEmits<{
     (e: 'view', node: string): void
     (e: 'close'): void
+    (e: 'openLexiconAge', code: string, mode: 'overlaps' | 'oldest'): void
 }>()
+
+const BGS_DIV_PREFIX = 'http://data.bgs.ac.uk/id/Geochronology/Division/'
+const bgsDivisionCode = computed(() => {
+    if (props.node.id.startsWith(BGS_DIV_PREFIX)) {
+        return props.node.id.slice(BGS_DIV_PREFIX.length)
+    }
+    return ''
+})
 
 const { getLabel, getDefinition } = useLabelContext()
 
@@ -72,6 +81,19 @@ const ages = computed(() => {
                         <ul class="linked-periods">
                             <li v-for="n in props.node.narrower" :key="n.id" @click="emit('view', n.id)" >
                                 {{ getLabel(n.id) }}
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr v-if="bgsDivisionCode">
+                    <th>Lexicon</th>
+                    <td>
+                        <ul class="linked-periods">
+                            <li @click="emit('openLexiconAge', bgsDivisionCode, 'overlaps')">
+                                Lexicon units overlapping {{ label }} →
+                            </li>
+                            <li @click="emit('openLexiconAge', bgsDivisionCode, 'oldest')">
+                                Lexicon units with oldest age in {{ label }} →
                             </li>
                         </ul>
                     </td>

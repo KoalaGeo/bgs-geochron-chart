@@ -1,72 +1,63 @@
-# BGS Geochronological Chart
+# BGS Geochronology, Lexicon & Rock Classification
 
-A BGS build of the ICS chart UI. The same `chart-ui` app builds either the
-ICS chart (default) or the BGS chart (`CHART_SOURCE=bgs`).
+A unified BGS build of the ICS chart UI (`CHART_SOURCE=bgs`) combining the **BGS Geochronological Chart**, the **BGS Lexicon of Named Rock Units**, and the **BGS Rock Classification Scheme (RCS)** into a single static site built directly from the published RDF/SKOS Turtle vocabularies.
+
+Without `CHART_SOURCE=bgs`, the app builds the upstream ICS chart unchanged.
+
+## Tabs & Views
+
+| Tab / Route | What it provides |
+|---|---|
+| **Geochronological Chart** (`/?tab=geochron`) | Interactive ICS + BGS Geochronological Chart with regional columns, Quaternary & MIS panel, and direct links from any division `InfoBox` to Lexicon rock units of that age (`overlaps` and `oldest`). |
+| **Lexicon** (`/?tab=lexicon`, `/lexicon`) | Client-side search and filter table across Named Rock Units (code with `*` wildcard, name, description/full-text, rank, status, age overlap/within/oldest, RCS rock type, preferred map code), CSV export, and rich unit detail views loaded on demand from sharded JSON (`data/units/{a..z,0-9}.json`). |
+| **Rock Classification (RCS)** (`/?tab=rcs`, `/rcs`) | Client-side search and filter table for the BGS Rock Classification Scheme (code, name, inverted index names, category, status), CSV export, and a side panel showing broader/narrower hierarchy and linked Lexicon units. |
+| **Browse A–Z** (`/?tab=browse`) | Initial-letter index for browsing all Lexicon rock units alphabetically. |
+| **About the data** (`/?tab=about`, `/about`) | Field-by-field data coverage for Lexicon and RCS (Distributable RDF vs Proposed predicates), Geochronological Chart join/fallback summary, and source file metadata. |
 
 **What comes from where:**
 
-| From | What |
+| Source | What |
 |---|---|
 | ICS `chart.ttl` | Hierarchy, ordering, ranks, GSSP/GSSA ratification |
-| BGS Geochronology vocabulary | Numeric ages, labels, colours, notations, definitions, identifiers |
-| BGS only | British and NW European regional series, stages and substages, and Marine Isotope Stages, as extra columns plus a Quaternary panel |
-
-Each ICS unit is joined to a BGS concept through BGS's CGI `skos:exactMatch`.
-When a unit has several candidate matches, the one at the same rank wins.
-Where the CGI link is missing or wrong, the join falls back to matching
-labels. Where BGS has no value (currently colour, for Visean and the three
-Holocene ages), the ICS value is used and the cell gets a dashed outline.
-`build/bgs-chart-report.json` records every join, fallback, conflict and
-age difference. The data problems behind the fallbacks are written up as a
-triples-ql-views issue.
+| `Geochronology.ttl` | Numeric ages, labels, colours, notations, definitions, identifiers, and age intervals for Lexicon age filtering |
+| `NamedRockUnit.ttl` | Lexicon of Named Rock Units (codes, names, ranks, statuses, ages, lithology, boundaries, thickness, stratotypes, hierarchy, map codes, BGS publications, spatial footprints) |
+| `RockUnitRank.ttl` | Lithostratigraphic / lithodemic ranks |
+| `RockClassAll.ttl` | BGS Rock Classification Scheme (codes, labels, inverted index names, definitions, hierarchy) |
+| `TypeLocalityType.ttl`, `SourceReferenceType.ttl` | Lookup vocabularies for proposed Lexicon predicates |
 
 ## Deploy from a fork to GitHub Pages
 
-`.github/workflows/deploy-bgs-chart.yml` builds and deploys the BGS chart in
-any fork. Upstream's `deploy-chart.yml` is guarded so it only runs in
-`i-c-stratigraphy/chart`, so it can't overwrite the BGS site.
+`.github/workflows/deploy-bgs-chart.yml` builds and deploys the unified BGS portal in any fork. Upstream's `deploy-chart.yml` is guarded so it only runs in `i-c-stratigraphy/chart`, so it can't overwrite the BGS site.
 
 1. Fork the repository and push this change to `main`.
 2. In the fork:
    - **Actions** tab: enable workflows (GitHub disables them in new forks).
    - **Settings → Pages → Source:** choose **GitHub Actions**.
-3. Run the workflow from the Actions tab, or push to `main`. The site
-   appears at `https://<owner>.github.io/<repo>/`.
+3. Run the workflow from the Actions tab, or push to `main`. The site appears at `https://<owner>.github.io/<repo>/`.
 
 Each run:
-- reads `prez/vocabs/Geochronology.ttl` from `BritishGeologicalSurvey/vocabularies`, pinned to that branch's current commit
-- generates the chart data (the run page shows a summary of joins and fallbacks)
-- validates the data, builds the site and deploys it
+- pins `BritishGeologicalSurvey/vocabularies` to the current commit on `BGS_VOCABS_REF`
+- generates `bgs/build/bgs-chart.ttl` and `bgs/build/bgs-chart-report.json`
+- tests and runs `chart-ui/scripts/build-bgs-vocabs.mjs` to generate `lexicon-index.json`, sharded `units/{a..z,0-9}.json`, `rcs.json`, `geochronology.json`, `coverage.json`, and `build.json`
+- validates all chart and vocabulary artifacts, builds the static Nuxt site, and deploys it
 
-It runs on every push to `main`, daily at 04:23 UTC to pick up vocabulary
-changes, manually, and on a `bgs-vocabularies-updated` repository dispatch.
-To rebuild as soon as the vocabularies repo publishes, add a step there that
-calls:
-
-```bash
-gh api repos/<owner>/<repo>/dispatches -f event_type=bgs-vocabularies-updated
-```
-
-That call needs a token with access to this repo.
-
-Optional repository variables (**Settings → Secrets and variables →
-Actions → Variables**):
+Optional repository variables (**Settings → Secrets and variables → Actions → Variables**):
 
 | Variable | Default | Use |
 |---|---|---|
 | `BGS_VOCABS_REPO` | `BritishGeologicalSurvey/vocabularies` | Source repository |
 | `BGS_VOCABS_REF` | `main` | Branch, tag or commit to read |
-| `BGS_GEOCHRON_PATH` | `prez/vocabs/Geochronology.ttl` | File within it |
-| `BGS_SPARQL_ENDPOINT` | (unset) | Read from a SPARQL endpoint instead of the TTL |
+| `BGS_GEOCHRON_PATH` | `prez/vocabs/Geochronology.ttl` | Geochronology TTL path within the repo (its directory is also used for the other 5 TTL files) |
+| `BGS_SPARQL_ENDPOINT` | (unset) | Read chart data from a SPARQL endpoint instead of the TTL |
 | `PAGES_BASE_URL` | `/<repo>/` | Set to `/` for a custom domain or a `<owner>.github.io` repo |
 
-The deployed site also serves `data/bgs-chart.ttl` and
-`data/bgs-chart-report.json`, linked from the page header.
+The deployed site serves all generated data under `<base>/data/` (`bgs-chart.ttl`, `bgs-chart-report.json`, `lexicon-index.json`, `units/*.json`, `rcs.json`, `geochronology.json`, `coverage.json`, `build.json`).
 
 ## Build the data
 
-You need Python 3.10+ and `pip install -r bgs/requirements.txt`. One query
-(`queries/bgs-geochronology.rq`) serves both sources:
+### 1. Geochronological Chart RDF (`bgs/build/bgs-chart.ttl`)
+
+Requires Python 3.10+ and `pip install -r bgs/requirements.txt`:
 
 ```bash
 pip install -r bgs/requirements.txt
@@ -79,48 +70,63 @@ python bgs/build_bgs_chart.py --ttl path/to/Geochronology.ttl
 python bgs/build_bgs_chart.py --ttl https://raw.githubusercontent.com/BritishGeologicalSurvey/vocabularies/main/prez/vocabs/Geochronology.ttl
 ```
 
-This writes `bgs/build/bgs-chart.ttl` (read by the UI) and
-`bgs/build/bgs-chart-report.json`. The workflow regenerates both on every
-run. The committed copies are only for local development without network
-access.
+### 2. Lexicon, RCS & Coverage JSON (`bgs/build/*.json`)
+
+Uses Node.js and the existing `n3` dependency in `chart-ui`:
+
+```bash
+cd chart-ui
+pnpm install
+
+# Fetch all 6 BGS TTL files from GitHub (or VOCAB_BASE_URL) and build JSON artifacts
+node scripts/build-bgs-vocabs.mjs
+
+# Or build from local TTL files on disk (e.g. offline fixtures)
+VOCAB_DIR=../bgs/fixtures MIN_UNITS=1 MIN_RCS=1 node scripts/build-bgs-vocabs.mjs
+
+# Run unit tests for the RDF parser, model, and JSON builder
+node --test scripts/test-bgs-vocabs.mjs
+```
+
+Environment variables for `scripts/build-bgs-vocabs.mjs`:
+
+| Variable | Default | Purpose |
+|---|---|---|
+| `VOCAB_BASE_URL` | `https://raw.githubusercontent.com/BritishGeologicalSurvey/vocabularies/main/prez/vocabs/` | Base URL to download the 6 `.ttl` files when not cached locally |
+| `VOCAB_DIR` | `bgs/build/.cache/vocabs` | Directory for cached or local `.ttl` files |
+| `OUT_DIR` | `bgs/build` | Output directory for generated JSON artifacts |
+| `MIN_UNITS` | `1000` | Minimum Lexicon units guard (fails build if fewer are parsed) |
+| `MIN_RCS` | `500` | Minimum RCS rock classes guard (fails build if fewer are parsed) |
+
+Committed sample outputs in `bgs/build/` allow local UI development without network access.
 
 ## Build or run the UI
 
 ```bash
 cd chart-ui
 pnpm install
-CHART_SOURCE=bgs node scripts/check-chart-data.mjs    # sanity-check the data
+CHART_SOURCE=bgs node scripts/check-chart-data.mjs    # sanity-check chart + Lexicon/RCS data
 CHART_SOURCE=bgs pnpm dev                             # http://localhost:3000/chart/
 CHART_SOURCE=bgs NUXT_APP_BASE_URL=/ pnpm generate    # static site in .output/public
 ```
-
-Without `CHART_SOURCE` everything behaves exactly as upstream.
 
 ## Files
 
 | File | Purpose |
 |---|---|
 | `.github/workflows/deploy-bgs-chart.yml` | Fork build and deploy to GitHub Pages |
-| `bgs/build_bgs_chart.py` | Generator |
-| `bgs/requirements.txt` | Generator dependencies |
-| `bgs/queries/bgs-geochronology.rq` | CONSTRUCT run against the endpoint or the TTL |
-| `bgs/regional-schemes.json` | Which regional scheme each non-ICS unit belongs to (by notation). The vocabulary doesn't record this. Delete it once triples-ql-views does |
-| `chart-ui/utils/chartConfig.ts` | Everything that differs between the ICS and BGS builds |
-| `chart-ui/components/RegionalColumns.vue` | Regional columns beside each segment. Measures where the ICS rows rendered, so alignment holds under every scale option |
-| `chart-ui/components/QuaternaryPanel.vue` | Quaternary panel (log or linear scale) with the MIS |
-| `chart-ui/components/BgsHeader.vue`, `BgsFooter.vue` | BGS page header and footer, including ICS CC BY 4.0 attribution |
-
-## Behaviour to know about
-
-- **Quaternary units appear only in the panel.** The main chart gives the
-  whole Quaternary a few rows, so its regional stages and the MIS would be
-  unreadable there.
-- **MIS 13–104 have a single age in BGS** (max = min). Each is drawn from
-  that age to the next younger stage, with a dashed outline.
-- **MIS shading is presentation only, not BGS data:** odd stages are warm,
-  even stages cold; for substages, a/c/e are warm and b/d cold.
-- **Chart-specific terms use a placeholder namespace,**
-  `http://data.bgs.ac.uk/def/geochron-chart#`. Rename it in
-  `build_bgs_chart.py` and `utils/layout.ts` if BGS wants to publish them.
-- **No ICS logos, PDF downloads or release lookups** in the BGS build. The
-  language selector is hidden, because BGS labels are English only.
+| `bgs/build_bgs_chart.py` | Geochronological Chart RDF generator |
+| `bgs/queries/bgs-geochronology.rq` | CONSTRUCT run against the endpoint or TTL |
+| `bgs/regional-schemes.json` | Regional scheme mapping for non-ICS units |
+| `chart-ui/scripts/bgs-vocabs-model.mjs` | N3 RDF parser and domain model for Lexicon, RCS, Geochronology, and coverage |
+| `chart-ui/scripts/build-bgs-vocabs.mjs` | Fetches TTLs and writes `lexicon-index.json`, `units/*.json`, `rcs.json`, `geochronology.json`, `coverage.json`, and `build.json` |
+| `chart-ui/scripts/test-bgs-vocabs.mjs` | `node:test` test suite for the vocabulary model and builder |
+| `chart-ui/utils/bgsVocabs.ts` | Vue composable and client helpers for loading and querying Lexicon/RCS data |
+| `chart-ui/assets/bgs-site.css` | BGS design system styles scoped to `.bgs-shell` and `.bgs-view` |
+| `chart-ui/components/BgsApp.vue` | Unified BGS shell managing tabs, URL query state, and cross-tab navigation |
+| `chart-ui/components/LexiconTab.vue` | Lexicon search/filter table, CSV export, and unit view switcher |
+| `chart-ui/components/LexiconUnitView.vue` | Full Lexicon unit detail sheet with linked data sidebar |
+| `chart-ui/components/RcsTab.vue` | RCS search/filter table and hierarchy detail side panel |
+| `chart-ui/components/LexiconBrowseTab.vue` | A–Z browse view for Lexicon rock units |
+| `chart-ui/components/AboutTab.vue` | Field-by-field Lexicon/RCS coverage report and chart build summary |
+| `chart-ui/components/BgsHeader.vue`, `BgsFooter.vue` | Unified BGS header, navigation tabs, and footer |

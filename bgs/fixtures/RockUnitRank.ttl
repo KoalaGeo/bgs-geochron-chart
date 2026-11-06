@@ -1,0 +1,7 @@
+# version: 2026-11-06T00:00:00Z
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rank: <http://data.bgs.ac.uk/id/Lexicon/RockUnitRank/>
+rank:S skos:prefLabel "Supergroup"@en .
+rank:G skos:prefLabel "Group"@en .
+rank:SS skos:prefLabel "Subsuite"@en .
+rank:LA skos:prefLabel "Laccolith"@en .

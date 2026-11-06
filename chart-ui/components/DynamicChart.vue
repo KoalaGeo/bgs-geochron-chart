@@ -12,6 +12,7 @@ import n3 from "n3";
 
 const { namedNode } = n3.DataFactory;
 const config = useChartConfig();
+const emit = defineEmits(["openLexiconAge"]);
 
 const NS = {
   dcterms: "http://purl.org/dc/terms/",
@@ -317,6 +318,7 @@ const downloadPdf = () => {
             :lang="selectedLang"
             @view="handleView"
             @close="target = ''"
+            @open-lexicon-age="(code, mode) => { target = ''; emit('openLexiconAge', code, mode); }"
           />
         </div>
       </div>

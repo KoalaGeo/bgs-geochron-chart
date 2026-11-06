@@ -1,0 +1,49 @@
+{
+  "EILD": {
+    "code": "EILD",
+    "iri": "http://data.bgs.ac.uk/id/Lexicon/NamedRockUnit/EILD",
+    "notation": "EILD",
+    "name": "Eildon Hills Laccolith",
+    "obsoleteNote": null,
+    "deprecated": false,
+    "definition": "Trachyte with subsidiary trachytic-rock and trace agglomerate and basalt.",
+    "rank": "LA",
+    "rankLabel": "Laccolith",
+    "oldest": "CMIE",
+    "youngest": "CMIM",
+    "oldestMa": 359.3,
+    "youngestMa": 330.3,
+    "predominantAge": null,
+    "periods": ["Carboniferous Period"],
+    "lithology": ["BA", "TR"],
+    "lithDesc": "Trachyte.",
+    "lower": "Intrusive contact.",
+    "upper": "Intrusive contact.",
+    "thickness": "",
+    "geoLimits": "Eildon Hills, Melrose, Scottish Borders.",
+    "mapCode": "EILD",
+    "mapSheets": ["S025"],
+    "definitionStatus": "Full",
+    "formality": null,
+    "parents": ["MVFTW"],
+    "chain": ["MVFTW"],
+    "children": [],
+    "altNames": [],
+    "obsoleteAltNames": [],
+    "previous": [],
+    "replacedBy": [],
+    "lateral": [],
+    "typeLocalities": [
+      {
+        "type": "Type Area",
+        "text": "Eildon Hills, Melrose, Scottish Borders. McRobert 1914"
+      }
+    ],
+    "references": [
+      {
+        "type": "Type Locality",
+        "text": "McRobert, R A. 1914. Acid and intermediate intrusions and associated ash-necks in the neighbourhood of Melrose (Roxburghshire). Quarterly Journal of the Geological Society, London, Vol.70, 303-315."
+      }
+    ]
+  }
+}

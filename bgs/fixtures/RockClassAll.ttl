@@ -1,0 +1,13 @@
+# version: 2026-11-06T00:00:00Z
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX reg: <http://purl.org/linked-data/registry#>
+PREFIX rca: <http://data.bgs.ac.uk/id/EarthMaterialClass/RockClassAll/>
+rca:TRR skos:prefLabel "Trachytic-rock"@en ; skos:definition "Trachytic-rock"@en ; owl:sameAs <http://data.bgs.ac.uk/id/EarthMaterialClass/RockName/TRR> ; reg:status <https://linked.data.gov.au/def/reg-statuses/stable> ; skos:narrower rca:TR .
+rca:TR skos:prefLabel "Trachyte"@en ; skos:definition "Trachyte - A type of trachytic-rock."@en ; owl:sameAs <http://data.bgs.ac.uk/id/EarthMaterialClass/RockName/TR> ; reg:status <https://linked.data.gov.au/def/reg-statuses/stable> ; skos:broader rca:TRR .
+rca:BA skos:prefLabel "Basalt"@en ; skos:definition "Basalt - A fine-grained mafic igneous rock."@en ; owl:sameAs <http://data.bgs.ac.uk/id/EarthMaterialClass/RockName/BA> ; reg:status <https://linked.data.gov.au/def/reg-statuses/stable> .
+rca:MDST skos:prefLabel "Mudstone"@en ; skos:definition "Mudstone - An argillaceous sedimentary rock."@en ; owl:sameAs <http://data.bgs.ac.uk/id/EarthMaterialClass/RockName/MDST> ; reg:status <https://linked.data.gov.au/def/reg-statuses/stable> .
+rca:AGTT skos:prefLabel "Agglomerate and tuffite"@en ; skos:definition "Agglomerate and tuffite"@en ; owl:sameAs <http://data.bgs.ac.uk/id/EarthMaterialClass/RockComposite/AGTT> ; reg:status <https://linked.data.gov.au/def/reg-statuses/stable> .
+rca:AEOLTE skos:prefLabel "Aeolianite (where cemented)"@en ; skos:definition "Aeolianite (where cemented)"@en ; owl:sameAs <http://data.bgs.ac.uk/id/EarthMaterialClass/RockName/AEOLTE> ; reg:status <https://linked.data.gov.au/def/reg-statuses/deprecated> .
+rca:FELAB skos:prefLabel "Albite felsite"@en ; skos:definition "Felsite, albite"@en ; owl:sameAs <http://data.bgs.ac.uk/id/EarthMaterialClass/RockName/FELAB> ; reg:status <https://linked.data.gov.au/def/reg-statuses/stable> .
+rca:BAALK skos:prefLabel "Alkali basalt"@en ; skos:definition "Basalt, alkali - A type of basalt."@en ; owl:sameAs <http://data.bgs.ac.uk/id/EarthMaterialClass/RockName/BAALK> ; reg:status <https://linked.data.gov.au/def/reg-statuses/stable> .

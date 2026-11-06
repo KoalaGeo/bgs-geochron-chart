@@ -1,0 +1,30 @@
+{
+  "builtAt": "2026-11-06T00:00:00.000Z",
+  "source": "bgs/fixtures (offline dev fallback; regenerated in CI from BritishGeologicalSurvey/vocabularies)",
+  "lexiconVersion": "2026-11-06T00:00:00Z",
+  "lexiconFingerprint": null,
+  "units": 6,
+  "rcs": 8,
+  "vocabularies": {
+    "NamedRockUnit.ttl": {
+      "version": "2026-11-06T00:00:00Z",
+      "title": "BGS Lexicon of Named Rock Units (fixture)",
+      "concepts": "6"
+    },
+    "RockUnitRank.ttl": {
+      "version": "2026-11-06T00:00:00Z"
+    },
+    "Geochronology.ttl": {
+      "version": "2026-11-06T00:00:00Z"
+    },
+    "RockClassAll.ttl": {
+      "version": "2026-11-06T00:00:00Z"
+    },
+    "TypeLocalityType.ttl": {
+      "version": "2026-11-06T00:00:00Z"
+    },
+    "SourceReferenceType.ttl": {
+      "version": "2026-11-06T00:00:00Z"
+    }
+  }
+}

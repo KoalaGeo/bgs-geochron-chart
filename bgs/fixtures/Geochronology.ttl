@@ -1,0 +1,13 @@
+# version: 2026-11-06T00:00:00Z
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX schema: <https://schema.org/>
+PREFIX geo: <http://data.bgs.ac.uk/ref/Geochronology/>
+PREFIX div: <http://data.bgs.ac.uk/id/Geochronology/Division/>
+PREFIX r: <http://data.bgs.ac.uk/id/Geochronology/Rank/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+div:T skos:prefLabel "Triassic Period"@en ; geo:hasGeochronologyRank r:PERIOD ; geo:maxAgeValue "251.9"^^xsd:double ; geo:minAgeValue "201.4"^^xsd:double ; schema:color "#812B92" .
+div:TA skos:prefLabel "Anisian Age"@en ; geo:hasGeochronologyRank r:AGE ; skos:broader div:T ; geo:maxAgeValue "246.7"^^xsd:double ; geo:minAgeValue "241.5"^^xsd:double ; schema:color "#B051A5" .
+div:TR skos:prefLabel "Rhaetian Age"@en ; geo:hasGeochronologyRank r:AGE ; skos:broader div:T ; geo:maxAgeValue "205.7"^^xsd:double ; geo:minAgeValue "201.4"^^xsd:double ; schema:color "#E3B9DB" .
+div:C skos:prefLabel "Carboniferous Period"@en ; geo:hasGeochronologyRank r:PERIOD ; geo:maxAgeValue "358.9"^^xsd:double ; geo:minAgeValue "298.9"^^xsd:double ; schema:color "#67A599" .
+div:CMIE skos:prefLabel "Early Mississippian Epoch"@en ; geo:hasGeochronologyRank r:EPOCH ; skos:broader div:C ; geo:maxAgeValue "359.3"^^xsd:double ; geo:minAgeValue "346.7"^^xsd:double ; schema:color "#80AB6C" .
+div:CMIM skos:prefLabel "Mid Mississippian Epoch"@en ; geo:hasGeochronologyRank r:EPOCH ; skos:broader div:C ; geo:maxAgeValue "346.7"^^xsd:double ; geo:minAgeValue "330.9"^^xsd:double ; schema:color "#99B575" .

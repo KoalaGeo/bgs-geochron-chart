@@ -1,0 +1,89 @@
+# Test fixture: a few units modelled as the export does today, plus EILD
+# carrying the PROPOSED predicates (status, map code, geographical limits,
+# type locality, references, map sheets) so the tests prove those page
+# sections switch on once triples-ql-views exports them.
+# version: 2026-11-06T00:00:00Z
+# title: BGS Lexicon of Named Rock Units (fixture)
+# concepts: 6
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX lex: <http://data.bgs.ac.uk/ref/Lexicon/>
+PREFIX nru: <http://data.bgs.ac.uk/id/Lexicon/NamedRockUnit/>
+PREFIX rank: <http://data.bgs.ac.uk/id/Lexicon/RockUnitRank/>
+PREFIX div: <http://data.bgs.ac.uk/id/Geochronology/Division/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX reg: <http://purl.org/linked-data/registry#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+nru:NRS a skos:Concept ;
+    skos:notation "NRS"@en ; skos:prefLabel "New Red Sandstone Supergroup"@en ;
+    reg:status <https://linked.data.gov.au/def/reg-statuses/stable> ;
+    lex:hasRockUnitRank rank:S ;
+    skos:narrower nru:MMG .
+
+nru:MMG a skos:Concept ;
+    skos:notation "MMG"@en ; skos:prefLabel "Mercia Mudstone Group"@en ;
+    skos:definition "Calcareous mudstone, mudstone and silty mudstone."@en ;
+    reg:status <https://linked.data.gov.au/def/reg-statuses/stable> ;
+    lex:hasRockUnitRank rank:G ;
+    lex:hasOldestAge div:TA ; lex:hasOldestAgeValue "246.7"^^xsd:double ;
+    lex:hasYoungestAge div:TR ; lex:hasYoungestAgeValue "201.4"^^xsd:double ;
+    lex:hasLithology "http://data.bgs.ac.uk/id/EarthMaterialClass/RockClassAll/MDST"^^xsd:anyURI ;
+    lex:hasLithologyDescription "Dominantly red mudstones.\r\n\r\nMid Triassic (Anisian) to latest Triassic (Rhaetian)."@en ;
+    lex:hasThicknessDescription "Up to 1350 m in the Cheshire Basin."@en ;
+    lex:hasObsoleteEquivalent nru:KM, nru:H4292 ;
+    skos:altLabel "Keuper Marl [Obsolete: use MMG]"@en, "Red Marl [Obsolete: use MMG]"@en, "Stanwix Shales Formation [Obsolete: use MMG]"@en, "Mercia Mudstones"@en ;
+    skos:broader nru:NRS .
+
+nru:KM a skos:Concept ;
+    skos:notation "KM"@en ; skos:prefLabel "Keuper Marl [Obsolete: use MMG]"@en ;
+    skos:definition "Obsolete name."@en ;
+    reg:status <https://linked.data.gov.au/def/reg-statuses/deprecated> ;
+    lex:hasLithologyDescription "[Obsolete: use MMG]"@en ;
+    skos:altLabel "Mercia Mudstone Group"@en ;
+    lex:isObsoleteEquivalentOf nru:MMG .
+
+nru:H4292 a skos:Concept ;
+    skos:notation "-4292"@en ; skos:prefLabel "Red Marl [Obsolete: use MMG]"@en ;
+    reg:status <https://linked.data.gov.au/def/reg-statuses/deprecated> ;
+    lex:isObsoleteEquivalentOf nru:MMG .
+
+nru:MVFTW a skos:Concept ;
+    skos:notation "MVFTW"@en ; skos:prefLabel "Tweed Subsuite"@en ;
+    reg:status <https://linked.data.gov.au/def/reg-statuses/stable> ;
+    lex:hasRockUnitRank rank:SS ;
+    skos:narrower nru:EILD .
+
+nru:EILD a skos:Concept ;
+    skos:notation "EILD"@en ; skos:prefLabel "Eildon Hills Laccolith"@en ;
+    skos:definition "Trachyte with subsidiary trachytic-rock and trace agglomerate and basalt."@en ;
+    reg:status <https://linked.data.gov.au/def/reg-statuses/stable> ;
+    lex:hasRockUnitRank rank:LA ;
+    lex:hasOldestAge div:CMIE ; lex:hasOldestAgeValue "359.3"^^xsd:double ;
+    lex:hasYoungestAge div:CMIM ; lex:hasYoungestAgeValue "330.3"^^xsd:double ;
+    lex:hasLithology "http://data.bgs.ac.uk/id/EarthMaterialClass/RockClassAll/TR"^^xsd:anyURI ;
+    lex:hasLithology <http://data.bgs.ac.uk/id/EarthMaterialClass/RockClassAll/BA> ;
+    lex:hasLithologyDescription "Trachyte."@en ;
+    lex:hasLowerBoundaryDefinition "Intrusive contact."@en ;
+    lex:hasUpperBoundaryDefinition "Intrusive contact."@en ;
+    skos:broader nru:MVFTW ;
+    # --- proposed additions (not yet in the real export) ---
+    lex:hasDefinitionStatus <http://data.bgs.ac.uk/id/Lexicon/DefinitionStatus/FULL> ;
+    lex:hasPreferredMapCode "EILD" ;
+    lex:hasGeographicalDistribution "Eildon Hills, Melrose, Scottish Borders."@en ;
+    lex:hasTypeLocality <http://data.bgs.ac.uk/id/Lexicon/TypeLocality/EILD-1> ;
+    lex:hasSourceInfo <http://data.bgs.ac.uk/id/Lexicon/SourceInfo/EILD-1> ;
+    lex:appearsOnMapSheet "S025" .
+
+<http://data.bgs.ac.uk/id/Lexicon/DefinitionStatus/FULL> skos:prefLabel "Full"@en .
+
+<http://data.bgs.ac.uk/id/Lexicon/TypeLocality/EILD-1>
+    lex:isTypeLocalityFor nru:EILD ;
+    lex:isTypeLocalityType <http://data.bgs.ac.uk/id/Lexicon/TypeLocalityType/TA> ;
+    rdfs:comment "Eildon Hills, Melrose, Scottish Borders. McRobert 1914"@en .
+
+<http://data.bgs.ac.uk/id/Lexicon/SourceInfo/EILD-1>
+    lex:isSourceInfoFor nru:EILD ;
+    lex:isSourceInfoType <http://data.bgs.ac.uk/id/Lexicon/SourceReferenceType/TYPLOC> ;
+    dcterms:bibliographicCitation "McRobert, R A. 1914. Acid and intermediate intrusions and associated ash-necks in the neighbourhood of Melrose (Roxburghshire). Quarterly Journal of the Geological Society, London, Vol.70, 303-315."@en .

@@ -27,4 +27,11 @@ for (const name of ["Phanerozoic", "Precambrian", "Quaternary", "Jurassic"]) {
 }
 assert(store.countQuads(namedNode(scheme), namedNode("http://www.w3.org/2002/07/owl#versionInfo"), null, null) > 0,
   "Chart metadata does not match the UI namespace");
+if (bgs) {
+  for (const jsonName of ["lexicon-index.json", "rcs.json", "geochronology.json", "coverage.json"]) {
+    const parsed = JSON.parse(readFileSync(new URL(`../../bgs/build/${jsonName}`, import.meta.url), "utf8"));
+    assert(parsed && (Array.isArray(parsed) ? parsed.length > 0 : Object.keys(parsed).length > 0),
+      `BGS vocabulary artifact ${jsonName} is empty or invalid`);
+  }
+}
 console.log("PASS: chart roots, child units, numeric ages and version metadata match the application.");

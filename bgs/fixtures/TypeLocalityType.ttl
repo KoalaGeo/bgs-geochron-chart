@@ -1,0 +1,4 @@
+# version: 2026-11-06T00:00:00Z
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+<http://data.bgs.ac.uk/id/Lexicon/TypeLocalityType/TA> skos:prefLabel "Type Area"@en .
+<http://data.bgs.ac.uk/id/Lexicon/TypeLocalityType/TS> skos:prefLabel "Type Section"@en .
