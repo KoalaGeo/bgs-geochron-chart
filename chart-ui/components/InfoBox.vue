@@ -21,6 +21,14 @@ const label = computed(() => {
 const definition = computed(() => {
     return getDefinition(props.node.id) || props.node.definition
 })
+
+const ageOf = (t: chartNode['hasBeginning']) => typeof t.inMYA === 'number' ? t.inMYA : t.inMYA.value
+const ages = computed(() => {
+    const notes: string[] = []
+    if (props.node.hasEnd.note === 'inferred') notes.push('end inferred from the next younger stage')
+    if (props.node.fallback) notes.push(`ICS value used for: ${props.node.fallback}`)
+    return `${ageOf(props.node.hasBeginning)} – ${ageOf(props.node.hasEnd)} Ma${notes.length ? ` (${notes.join('; ')})` : ''}`
+})
 </script>
 <template>
     <div class="info-box">
@@ -39,6 +47,14 @@ const definition = computed(() => {
         </div>
         <div class="details">
             <table class="table-details">
+                <tr>
+                    <th>Age</th>
+                    <td>{{ ages }}</td>
+                </tr>
+                <tr>
+                    <th>Identifier</th>
+                    <td><a :href="props.node.id" target="_blank" rel="noreferrer">{{ props.node.id }}</a></td>
+                </tr>
 
                 <tr v-if="props.node.broader && props.node.broader.length > 0">
                     <th>Within</th>

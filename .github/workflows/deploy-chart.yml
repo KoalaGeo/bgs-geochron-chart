@@ -13,6 +13,9 @@ concurrency:
   cancel-in-progress: false
 jobs:
   build:
+    # ICS site only. Forks build the BGS chart instead (deploy-bgs-chart.yml);
+    # deploy and publish-pdfs need this job, so they are skipped too.
+    if: github.repository == 'i-c-stratigraphy/chart'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7

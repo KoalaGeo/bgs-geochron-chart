@@ -115,6 +115,14 @@ export function createLabelProvider(
   }
 
   function resolveLabel(iri: string, type: LabelType, lang: string): string {
+    // BGS chart: labels are chronometric (Early/Mid/Late); the build adds a
+    // Lower/Middle/Upper form for the stratigraphic column headings.
+    if (type === "stratigraphic" && cf.value) {
+      const strat = cf.value.node(namedNode(iri))
+        .out(namedNode("http://data.bgs.ac.uk/def/geochron-chart#stratigraphicLabel"))
+        .terms.find(t => t.termType === "Literal" && t.language === "en")?.value;
+      if (strat) return strat;
+    }
     const direct = getDirectLabel(iri, lang);
     if (direct) return direct;
 

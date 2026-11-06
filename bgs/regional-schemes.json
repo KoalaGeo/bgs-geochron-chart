@@ -1,0 +1,41 @@
+{
+  "_comment": [
+    "Which regional scheme each non-ICS BGS unit belongs to. The BGS vocabulary does not record this,",
+    "so it is listed here by skos:notation. Units not listed default to 'uk'. MIS are assigned by rank.",
+    "Remove this file's lists once triples-ql-views publishes scheme membership (e.g. skos:Collection per scheme)."
+  ],
+  "default": "uk",
+  "schemes": {
+    "uk": {
+      "label": "British"
+    },
+    "nw-europe": {
+      "label": "NW European"
+    },
+    "mis": {
+      "label": "Marine Isotope Stages"
+    }
+  },
+  "members": {
+    "nw-europe": [
+      "BR",
+      "BRC",
+      "BP",
+      "BT",
+      "BTA",
+      "BTB",
+      "BTC",
+      "BE",
+      "BW",
+      "BM",
+      "BB",
+      "BC",
+      "BL",
+      "BH",
+      "BS",
+      "BI",
+      "BD",
+      "CUT"
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed } from "vue"
-import { type chartNode, type chartMeta, type scalingFactor } from "@/utils/util"
+import { computed, ref } from "vue"
+import { type chartNode, type chartMeta, type scalingFactor, type RegionalColumn } from "@/utils/util"
 import { useLabelContext, type LabelType } from "@/utils/label"
 
 const props = defineProps<{
@@ -10,7 +10,11 @@ const props = defineProps<{
     labelType: LabelType,
     kind: 'default' | 'precambrian',
     meta?: chartMeta,
+    /** BGS chart: regional columns drawn beside this segment. */
+    regional?: RegionalColumn[],
 }>()
+
+const gridEl = ref<HTMLElement | null>(null)
 
 const emit = defineEmits<{
     (e: 'view', node: string): void
@@ -62,7 +66,8 @@ const blurbSections = computed(() => {
 </script>
 <template>
     <div class="grid-wrapper">
-        <div class="grid-7" v-if="props.kind == 'default'">
+        <div class="segment-row" v-if="props.kind == 'default'">
+        <div class="grid-7" ref="gridEl">
             <ChartHeader tag="div" class="header v-text" iri="https://data.stratigraphy.org/data/gts/Eons" :label-type="props.labelType" />
             <ChartHeader tag="div" class="header v-text" iri="https://data.stratigraphy.org/data/gts/Eras" :label-type="props.labelType" />
             <ChartHeader tag="div" class="header v-text" iri="https://data.stratigraphy.org/data/gts/Periods" :label-type="props.labelType" />
@@ -74,6 +79,9 @@ const blurbSections = computed(() => {
             <div class="header center age-text">{{ getUiLabel(`${NS.icsVisual}NumericAge`, "Numeric Age") }}</div>
             <ChartGridCell :lang="props.lang" :node="props.node" :parent-rank="''" :scaling="props.scaling"
                 @view="n => emit('view', n)" />
+        </div>
+        <RegionalColumns v-if="props.regional?.length" :columns="props.regional" :anchor="gridEl"
+            @view="n => emit('view', n)" />
         </div>
         <template v-else>
             <div class="grid-5 precambrian-grid">
@@ -110,6 +118,17 @@ const blurbSections = computed(() => {
     </div>
 </template>
 <style scoped>
+.segment-row {
+    display: flex;
+    align-items: flex-start;
+}
+.segment-row > .grid-7 {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+.segment-row > .regional {
+    margin-top: 4rem;
+}
 
 .grid-5 {
     margin-top: 4rem;

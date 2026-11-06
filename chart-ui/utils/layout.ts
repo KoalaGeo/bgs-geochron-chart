@@ -1,6 +1,6 @@
 import type { AnyPointer } from 'clownface'
 import n3 from 'n3'
-import { type chartNode } from './util'
+import { type chartNode, type RegionalColumn, type RegionalUnit } from './util'
 
 const { namedNode } = n3.DataFactory
 
@@ -14,6 +14,9 @@ const NS = {
   rank: 'http://resource.geosciml.org/ontology/timescale/rank/',
   rdfs: 'http://www.w3.org/2000/01/rdf-schema#',
   prov: 'http://www.w3.org/ns/prov#',
+  rdf: 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
+  // BGS chart build terms (bgs/build_bgs_chart.py)
+  bgsc: 'http://data.bgs.ac.uk/def/geochron-chart#',
 }
 
 export function useLayoutEngine(cf: AnyPointer) {
@@ -61,6 +64,16 @@ export function useLayoutEngine(cf: AnyPointer) {
     }
   }
 
+  /**
+   * The chart's segments are defined with ICS IRIs. In a dataset that uses its
+   * own identifiers (the BGS chart), each unit links back with
+   * skos:exactMatch <ICS IRI>, so resolve through that; otherwise use the IRI.
+   */
+  function resolve(icsIri: string): string {
+    const match = cf.node(namedNode(icsIri)).in(namedNode(NS.skos + 'exactMatch')).term
+    return match?.value ?? icsIri
+  }
+
   function buildNode(iri: string, maxDepth = Number.POSITIVE_INFINITY): chartNode {
     const node = cf.node(namedNode(iri))
 
@@ -101,6 +114,7 @@ export function useLayoutEngine(cf: AnyPointer) {
       order: getNumeric(node, NS.sh + 'order') || 0,
       wasDerivedFrom: getLiteral(node, NS.prov + 'wasDerivedFrom') || '',
       color: getLiteral(node, NS.sdo + 'color') || '#FFFFFF',
+      fallback: getLiteral(node, NS.bgsc + 'icsFallback') || '',
       counts: {
         directNarrowers,
         indirectNarrowers,
@@ -155,7 +169,7 @@ export function useLayoutEngine(cf: AnyPointer) {
     if (root.narrower) {
       root.narrower = root.narrower.filter(era => {
         if (era.narrower) {
-          era.narrower = era.narrower.filter(period => includePeriods.includes(period.id))
+          era.narrower = era.narrower.filter(period => includePeriods.map(resolve).includes(period.id))
           return era.narrower.length > 0
         }
         return false
@@ -166,8 +180,8 @@ export function useLayoutEngine(cf: AnyPointer) {
   }
 
   function getSegments() {
-    const phanerozoic = NS.ischart + 'Phanerozoic'
-    const precambrian = NS.ischart + 'Precambrian'
+    const phanerozoic = resolve(NS.ischart + 'Phanerozoic')
+    const precambrian = resolve(NS.ischart + 'Precambrian')
 
     const s1 = splitChart(phanerozoic, [
       NS.ischart + 'Cretaceous',
@@ -194,9 +208,41 @@ export function useLayoutEngine(cf: AnyPointer) {
     return [s1, s2, s3, s4]
   }
 
+  /** BGS regional / MIS columns (empty for the ICS chart). */
+  function getRegionalColumns(): RegionalColumn[] {
+    const columns = cf.has(namedNode(NS.rdf + 'type'), namedNode(NS.bgsc + 'Column'))
+    return columns.map((col): RegionalColumn => {
+      const units = cf.has(namedNode(NS.bgsc + 'column'), col.term!)
+        .map((u): RegionalUnit => {
+          const begin = getTimeMarker(u, NS.time + 'hasBeginning')
+          const end = getTimeMarker(u, NS.time + 'hasEnd')
+          return {
+            id: u.term!.value,
+            label: getLiteral(u, NS.skos + 'prefLabel') || u.term!.value,
+            shortLabel: getLiteral(u, NS.bgsc + 'shortLabel') || getLiteral(u, NS.skos + 'prefLabel') || '',
+            begin: begin.inMYA,
+            end: end.inMYA,
+            color: getLiteral(u, NS.sdo + 'color') || '',
+            inferred: getLiteral(u, NS.bgsc + 'rangeInferred') === 'true',
+          }
+        })
+        .sort((a, b) => a.end - b.end || a.begin - b.begin)
+      return {
+        id: col.term!.value,
+        label: getLiteral(col, NS.skos + 'prefLabel') || '',
+        scheme: getLiteral(col, NS.bgsc + 'scheme') || '',
+        schemeLabel: getLiteral(col, NS.bgsc + 'schemeLabel') || '',
+        order: getNumeric(col, NS.sh + 'order') || 0,
+        units,
+      }
+    }).sort((a, b) => a.order - b.order)
+  }
+
   return {
     buildNode,
     getSegments,
-    calculateHeights
+    calculateHeights,
+    getRegionalColumns,
+    resolve,
   }
 }

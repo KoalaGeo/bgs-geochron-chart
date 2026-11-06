@@ -11,12 +11,13 @@ import { useLayoutEngine } from "@/utils/layout";
 import n3 from "n3";
 
 const { namedNode } = n3.DataFactory;
+const config = useChartConfig();
 
 const NS = {
   dcterms: "http://purl.org/dc/terms/",
   owl: "http://www.w3.org/2002/07/owl#",
   skos: "http://www.w3.org/2004/02/skos/core#",
-  cs: "https://data.stratigraphy.org/def/chart",
+  cs: config.schemeIri,
   icsVisual: "https://data.stratigraphy.org/data/vis/",
   strat: "https://data.stratigraphy.org/data/strat/",
 };
@@ -35,6 +36,17 @@ const pdfVersion = ref("");
 const downloadVersion = ref("");
 const layoutEngine = shallowRef(null);
 const pdfVersionError = ref(false);
+const regionalColumns = shallowRef([]);
+const quaternary = shallowRef(null);
+// The main chart gives the whole Quaternary a few rows, far too small for its
+// regional stages or the MIS, so those appear only in the Quaternary panel.
+const segmentColumns = computed(() => {
+  const qBase = quaternary.value?.hasBeginning?.inMYA ?? 0;
+  return regionalColumns.value
+    .filter((c) => c.scheme !== "mis")
+    .map((c) => ({ ...c, units: c.units.filter((u) => u.end >= qBase) }))
+    .filter((c) => c.units.length > 0);
+});
 
 const setChartReadyState = (state) => {
   if (typeof document === "undefined") {
@@ -116,7 +128,7 @@ function extractMeta(pointer) {
     creator: {
       url:
         cs.out(namedNode(NS.dcterms + "creator")).term?.value ||
-        "www.stratigraphy.org",
+        (config.icsBranding ? "www.stratigraphy.org" : ""),
     },
   };
 }
@@ -151,8 +163,16 @@ onMounted(async () => {
   data.value = layoutEngine.value.getSegments();
   meta.value = extractMeta(cf.value);
   infoTarget.value = resolveInfoTarget(target.value);
+  if (config.regionalColumns) {
+    regionalColumns.value = layoutEngine.value.getRegionalColumns();
+    const q = layoutEngine.value.resolve("https://data.stratigraphy.org/data/gts/Quaternary");
+    quaternary.value = layoutEngine.value.buildNode(q, 2);
+  }
   ready.value = true;
 
+  if (!config.icsBranding) {
+    return;
+  }
   try {
     const v = await (
       await fetch(
@@ -252,8 +272,7 @@ const localizedScalingOptions = computed(() => {
 
 const commissionTitle = computed(() => {
   if (!meta.value) return "loading";
-  // Simplified for now, could resolve from a specific IRI if needed
-  return "International Commission on Stratigraphy";
+  return config.organisation;
 });
 
 watch(target, (newTarget) => {
@@ -305,13 +324,13 @@ const downloadPdf = () => {
 
     <div class="grid-5 only-print" v-if="meta">
       <div class="cell" style="--_col-span: 1; --_row-span: 2">
-        <img src="/IUGSLOGOright.gif" />
+        <img v-if="config.icsBranding" src="/IUGSLOGOright.gif" />
       </div>
       <div class="cell" style="--_col-span: 3; --_row-span: 1">
         <h1>{{ chartTitle }}</h1>
       </div>
       <div class="cell" style="--_col-span: 1; --_row-span: 2">
-        <img src="/logo-ics-3D-dark.png" />
+        <img v-if="config.icsBranding" src="/logo-ics-3D-dark.png" />
       </div>
       <div class="cell" style="--_col-span: 1; --_row-span: 1">
         <h2>{{ meta.creator?.url }}</h2>
@@ -331,7 +350,7 @@ const downloadPdf = () => {
       <div v-if="!ready">LOADING</div>
       <div v-else>
         <div class="no-print chart-controls widther">
-          <label>
+          <label v-if="langs.length > 1">
             {{ languageFieldLabel }}:
             <select v-model="selectedLang">
               <option v-for="lang in langs" :key="lang" :value="lang">
@@ -363,7 +382,7 @@ const downloadPdf = () => {
               </option>
             </select>
           </label>
-          <label>
+          <label v-if="config.icsBranding">
             {{ downloadFieldLabel }}:
             <select v-model="downloadVersion">
               <option value="">Main</option>
@@ -389,9 +408,16 @@ const downloadPdf = () => {
             :label-type="labelType"
             :kind="num === 4 ? 'precambrian' : 'default'"
             :meta="meta"
+            :regional="num === 4 ? [] : segmentColumns"
             @view="handleView"
           />
         </div>
+        <QuaternaryPanel
+          v-if="config.regionalColumns && quaternary"
+          :quaternary="quaternary"
+          :columns="regionalColumns"
+          @view="handleView"
+        />
       </div>
     </div>
   </div>

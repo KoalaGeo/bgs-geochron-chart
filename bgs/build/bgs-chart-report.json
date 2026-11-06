@@ -1,0 +1,2360 @@
+{
+  "matches": [
+    {
+      "ics": "Aalenian",
+      "bgs": "JA",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/JA",
+      "bgs_label": "Aalenian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Aeronian",
+      "bgs": "SA",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/SA",
+      "bgs_label": "Aeronian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Albian",
+      "bgs": "KA",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/KA",
+      "bgs_label": "Albian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Anisian",
+      "bgs": "TA",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/TA",
+      "bgs_label": "Anisian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Aptian",
+      "bgs": "KP",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/KP",
+      "bgs_label": "Aptian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Aquitanian",
+      "bgs": "NA",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/NA",
+      "bgs_label": "Aquitanian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Archean",
+      "bgs": "AR",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/AR",
+      "bgs_label": "Archean Eon",
+      "method": "cgi"
+    },
+    {
+      "ics": "Artinskian",
+      "bgs": "PI",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/PI",
+      "bgs_label": "Artinskian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Asselian",
+      "bgs": "PA",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/PA",
+      "bgs_label": "Asselian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Bajocian",
+      "bgs": "JB",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/JB",
+      "bgs_label": "Bajocian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Barremian",
+      "bgs": "KB",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/KB",
+      "bgs_label": "Barremian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Bartonian",
+      "bgs": "GB",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/GB",
+      "bgs_label": "Bartonian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Bashkirian",
+      "bgs": "CBS",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/CBS",
+      "bgs_label": "Bashkirian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Bathonian",
+      "bgs": "JN",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/JN",
+      "bgs_label": "Bathonian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Berriasian",
+      "bgs": "KR",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/KR",
+      "bgs_label": "Berriasian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Burdigalian",
+      "bgs": "NB",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/NB",
+      "bgs_label": "Burdigalian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Calabrian",
+      "bgs": "Q2C",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/Q2C",
+      "bgs_label": "Calabrian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Callovian",
+      "bgs": "JC",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/JC",
+      "bgs_label": "Callovian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Calymmian",
+      "bgs": "AY",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/AY",
+      "bgs_label": "Calymmian Period",
+      "method": "cgi"
+    },
+    {
+      "ics": "Cambrian",
+      "bgs": "E",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/E",
+      "bgs_label": "Cambrian Period",
+      "method": "cgi"
+    },
+    {
+      "ics": "CambrianSeries2",
+      "bgs": "E2",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/E2",
+      "bgs_label": "Cambrian Series 2",
+      "method": "cgi"
+    },
+    {
+      "ics": "CambrianStage10",
+      "bgs": "E10",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/E10",
+      "bgs_label": "Cambrian Stage 10",
+      "method": "cgi"
+    },
+    {
+      "ics": "CambrianStage2",
+      "bgs": "E02",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/E02",
+      "bgs_label": "Cambrian Stage 2",
+      "method": "cgi"
+    },
+    {
+      "ics": "CambrianStage3",
+      "bgs": "E03",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/E03",
+      "bgs_label": "Cambrian Stage 3",
+      "method": "cgi"
+    },
+    {
+      "ics": "CambrianStage4",
+      "bgs": "E04",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/E04",
+      "bgs_label": "Cambrian Stage 4",
+      "method": "cgi"
+    },
+    {
+      "ics": "Campanian",
+      "bgs": "KC",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/KC",
+      "bgs_label": "Campanian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Capitanian",
+      "bgs": "PUC",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/PUC",
+      "bgs_label": "Capitanian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Carboniferous",
+      "bgs": "C",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/C",
+      "bgs_label": "Carboniferous Period",
+      "method": "cgi"
+    },
+    {
+      "ics": "Carnian",
+      "bgs": "TC",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/TC",
+      "bgs_label": "Carnian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Cenomanian",
+      "bgs": "KE",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/KE",
+      "bgs_label": "Cenomanian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Cenozoic",
+      "bgs": "IZ",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/IZ",
+      "bgs_label": "Cenozoic Era",
+      "method": "cgi"
+    },
+    {
+      "ics": "Changhsingian",
+      "bgs": "PUH",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/PUH",
+      "bgs_label": "Changhsingian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Chattian",
+      "bgs": "GC",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/GC",
+      "bgs_label": "Chattian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Chibanian",
+      "bgs": "Q2I",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/Q2I",
+      "bgs_label": "Chibanian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Cisuralian",
+      "bgs": "PLC",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/PLC",
+      "bgs_label": "Cisuralian Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "Coniacian",
+      "bgs": "KO",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/KO",
+      "bgs_label": "Coniacian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Cretaceous",
+      "bgs": "K",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/K",
+      "bgs_label": "Cretaceous Period",
+      "method": "cgi"
+    },
+    {
+      "ics": "Cryogenian",
+      "bgs": "AC",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/AC",
+      "bgs_label": "Cryogenian Period",
+      "method": "cgi"
+    },
+    {
+      "ics": "Danian",
+      "bgs": "GD",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/GD",
+      "bgs_label": "Danian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Dapingian",
+      "bgs": "ODP",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/ODP",
+      "bgs_label": "Dapingian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Darriwilian",
+      "bgs": "ODW",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/ODW",
+      "bgs_label": "Darriwilian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Devonian",
+      "bgs": "D",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/D",
+      "bgs_label": "Devonian Period",
+      "method": "cgi"
+    },
+    {
+      "ics": "Drumian",
+      "bgs": "EDM",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/EDM",
+      "bgs_label": "Drumian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Ectasian",
+      "bgs": "AB",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/AB",
+      "bgs_label": "Ectasian Period",
+      "method": "cgi"
+    },
+    {
+      "ics": "Ediacaran",
+      "bgs": "AD",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/AD",
+      "bgs_label": "Ediacaran Period",
+      "method": "cgi"
+    },
+    {
+      "ics": "Eifelian",
+      "bgs": "DI",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/DI",
+      "bgs_label": "Eifelian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Emsian",
+      "bgs": "DE",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/DE",
+      "bgs_label": "Emsian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Eoarchean",
+      "bgs": "AE",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/AE",
+      "bgs_label": "Eoarchean Era",
+      "method": "cgi"
+    },
+    {
+      "ics": "Eocene",
+      "bgs": "GE",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/GE",
+      "bgs_label": "Eocene Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "Famennian",
+      "bgs": "DA",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/DA",
+      "bgs_label": "Famennian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Floian",
+      "bgs": "OFL",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/OFL",
+      "bgs_label": "Floian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Fortunian",
+      "bgs": "EFT",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/EFT",
+      "bgs_label": "Fortunian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Frasnian",
+      "bgs": "DR",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/DR",
+      "bgs_label": "Frasnian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Furongian",
+      "bgs": "EF",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/EF",
+      "bgs_label": "Furongian Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "Gelasian",
+      "bgs": "Q2G",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/Q2G",
+      "bgs_label": "Gelasian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Givetian",
+      "bgs": "DV",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/DV",
+      "bgs_label": "Givetian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Gorstian",
+      "bgs": "SG",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/SG",
+      "bgs_label": "Gorstian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Greenlandian",
+      "bgs": "QHE",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/QHE",
+      "bgs_label": "Greenlandian Age",
+      "method": "label"
+    },
+    {
+      "ics": "Guadalupian",
+      "bgs": "PUG",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/PUG",
+      "bgs_label": "Guadalupian Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "Guzhangian",
+      "bgs": "EGZ",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/EGZ",
+      "bgs_label": "Guzhangian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Gzhelian",
+      "bgs": "CGZ",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/CGZ",
+      "bgs_label": "Gzhelian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Hadean",
+      "bgs": "A1",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/A1",
+      "bgs_label": "Hadean",
+      "method": "cgi"
+    },
+    {
+      "ics": "Hauterivian",
+      "bgs": "KH",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/KH",
+      "bgs_label": "Hauterivian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Hettangian",
+      "bgs": "JH",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/JH",
+      "bgs_label": "Hettangian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Hirnantian",
+      "bgs": "OH",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/OH",
+      "bgs_label": "Hirnantian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Holocene",
+      "bgs": "QH",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/QH",
+      "bgs_label": "Holocene Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "Homerian",
+      "bgs": "SH",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/SH",
+      "bgs_label": "Homerian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Induan",
+      "bgs": "TI",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/TI",
+      "bgs_label": "Induan Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Jiangshanian",
+      "bgs": "E09",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/E09",
+      "bgs_label": "Jiangshanian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Jurassic",
+      "bgs": "J",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/J",
+      "bgs_label": "Jurassic Period",
+      "method": "cgi"
+    },
+    {
+      "ics": "Kasimovian",
+      "bgs": "CKS",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/CKS",
+      "bgs_label": "Kasimovian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Katian",
+      "bgs": "OKA",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/OKA",
+      "bgs_label": "Katian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Kimmeridgian",
+      "bgs": "JD",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/JD",
+      "bgs_label": "Kimmeridgian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Kungurian",
+      "bgs": "PK",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/PK",
+      "bgs_label": "Kungurian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Ladinian",
+      "bgs": "TD",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/TD",
+      "bgs_label": "Ladinian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Langhian",
+      "bgs": "NL",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/NL",
+      "bgs_label": "Langhian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Llandovery",
+      "bgs": "SL",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/SL",
+      "bgs_label": "Llandovery Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "Lochkovian",
+      "bgs": "DO",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/DO",
+      "bgs_label": "Lochkovian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Lopingian",
+      "bgs": "PUL",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/PUL",
+      "bgs_label": "Lopingian Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "LowerCretaceous",
+      "bgs": "KL",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/KL",
+      "bgs_label": "Early Cretaceous Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "LowerDevonian",
+      "bgs": "DL",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/DL",
+      "bgs_label": "Early Devonian Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "LowerJurassic",
+      "bgs": "JL",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/JL",
+      "bgs_label": "Early Jurassic Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "LowerMississippian",
+      "bgs": "CMIE",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/CMIE",
+      "bgs_label": "Early Mississippian Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "LowerOrdovician",
+      "bgs": "OEA",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/OEA",
+      "bgs_label": "Early Ordovician Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "LowerPennsylvanian",
+      "bgs": "CPEE",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/CPEE",
+      "bgs_label": "Early Pennsylvanian Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "LowerTriassic",
+      "bgs": "TE",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/TE",
+      "bgs_label": "Early Triassic Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "Ludfordian",
+      "bgs": "SD",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/SD",
+      "bgs_label": "Ludfordian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Ludlow",
+      "bgs": "SU",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/SU",
+      "bgs_label": "Ludlow Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "Lutetian",
+      "bgs": "GL",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/GL",
+      "bgs_label": "Lutetian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Maastrichtian",
+      "bgs": "KM",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/KM",
+      "bgs_label": "Maastrichtian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Meghalayan",
+      "bgs": "QHL",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/QHL",
+      "bgs_label": "Meghalayan Age",
+      "method": "label"
+    },
+    {
+      "ics": "Mesoarchean",
+      "bgs": "AM",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/AM",
+      "bgs_label": "Mesoarchean Era",
+      "method": "cgi"
+    },
+    {
+      "ics": "Mesoproterozoic",
+      "bgs": "AX",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/AX",
+      "bgs_label": "Mesoproterozoic Era",
+      "method": "cgi"
+    },
+    {
+      "ics": "Mesozoic",
+      "bgs": "MZ",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/MZ",
+      "bgs_label": "Mesozoic Era",
+      "method": "cgi"
+    },
+    {
+      "ics": "Messinian",
+      "bgs": "NE",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/NE",
+      "bgs_label": "Messinian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Miaolingian",
+      "bgs": "E3",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/E3",
+      "bgs_label": "Miaolingian Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "MiddleDevonian",
+      "bgs": "DM",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/DM",
+      "bgs_label": "Mid Devonian Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "MiddleJurassic",
+      "bgs": "JM",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/JM",
+      "bgs_label": "Mid Jurassic Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "MiddleMississippian",
+      "bgs": "CMIM",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/CMIM",
+      "bgs_label": "Mid Mississippian Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "MiddleOrdovician",
+      "bgs": "OMD",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/OMD",
+      "bgs_label": "Mid Ordovician Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "MiddlePennsylvanian",
+      "bgs": "CPEM",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/CPEM",
+      "bgs_label": "Mid Pennsylvanian Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "MiddleTriassic",
+      "bgs": "TM",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/TM",
+      "bgs_label": "Mid Triassic Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "Miocene",
+      "bgs": "NM",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/NM",
+      "bgs_label": "Miocene Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "Mississippian",
+      "bgs": "CMI",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/CMI",
+      "bgs_label": "Mississippian Subperiod",
+      "method": "cgi"
+    },
+    {
+      "ics": "Moscovian",
+      "bgs": "CMO",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/CMO",
+      "bgs_label": "Moscovian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Neoarchean",
+      "bgs": "AN",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/AN",
+      "bgs_label": "Neoarchean Era",
+      "method": "cgi"
+    },
+    {
+      "ics": "Neogene",
+      "bgs": "N",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/N",
+      "bgs_label": "Neogene Period",
+      "method": "cgi"
+    },
+    {
+      "ics": "Neoproterozoic",
+      "bgs": "AZ",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/AZ",
+      "bgs_label": "Neoproterozoic Era",
+      "method": "cgi"
+    },
+    {
+      "ics": "Norian",
+      "bgs": "TN",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/TN",
+      "bgs_label": "Norian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Northgrippian",
+      "bgs": "QHM",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/QHM",
+      "bgs_label": "Northgrippian Age",
+      "method": "label"
+    },
+    {
+      "ics": "Olenekian",
+      "bgs": "TO",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/TO",
+      "bgs_label": "Olenekian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Oligocene",
+      "bgs": "GO",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/GO",
+      "bgs_label": "Oligocene Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "Ordovician",
+      "bgs": "O",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/O",
+      "bgs_label": "Ordovician Period",
+      "method": "cgi"
+    },
+    {
+      "ics": "Orosirian",
+      "bgs": "AO",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/AO",
+      "bgs_label": "Orosirian Period",
+      "method": "cgi"
+    },
+    {
+      "ics": "Oxfordian",
+      "bgs": "JO",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/JO",
+      "bgs_label": "Oxfordian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Paibian",
+      "bgs": "E08",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/E08",
+      "bgs_label": "Paibian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Paleoarchean",
+      "bgs": "AA",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/AA",
+      "bgs_label": "Paleoarchean Era",
+      "method": "cgi"
+    },
+    {
+      "ics": "Paleocene",
+      "bgs": "GP",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/GP",
+      "bgs_label": "Paleocene Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "Paleogene",
+      "bgs": "G",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/G",
+      "bgs_label": "Paleogene Period",
+      "method": "cgi"
+    },
+    {
+      "ics": "Paleoproterozoic",
+      "bgs": "AL",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/AL",
+      "bgs_label": "Paleoproterozoic Era",
+      "method": "cgi"
+    },
+    {
+      "ics": "Paleozoic",
+      "bgs": "RZ",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/RZ",
+      "bgs_label": "Paleozoic Era",
+      "method": "cgi"
+    },
+    {
+      "ics": "Pennsylvanian",
+      "bgs": "CPE",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/CPE",
+      "bgs_label": "Pennsylvanian Subperiod",
+      "method": "cgi"
+    },
+    {
+      "ics": "Permian",
+      "bgs": "P",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/P",
+      "bgs_label": "Permian Period",
+      "method": "cgi"
+    },
+    {
+      "ics": "Phanerozoic",
+      "bgs": "FH",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/FH",
+      "bgs_label": "Phanerozoic Eon",
+      "method": "cgi"
+    },
+    {
+      "ics": "Piacenzian",
+      "bgs": "NC",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/NC",
+      "bgs_label": "Piacenzian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Pleistocene",
+      "bgs": "QP",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/QP",
+      "bgs_label": "Pleistocene Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "Pliensbachian",
+      "bgs": "JE",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/JE",
+      "bgs_label": "Pliensbachian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Pliocene",
+      "bgs": "NP",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/NP",
+      "bgs_label": "Pliocene Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "Pragian",
+      "bgs": "DP",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/DP",
+      "bgs_label": "Pragian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Precambrian",
+      "bgs": "A",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/A",
+      "bgs_label": "Precambrian",
+      "method": "cgi"
+    },
+    {
+      "ics": "Priabonian",
+      "bgs": "GI",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/GI",
+      "bgs_label": "Priabonian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Pridoli",
+      "bgs": "SO",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/SO",
+      "bgs_label": "Pridoli Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "Proterozoic",
+      "bgs": "AP",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/AP",
+      "bgs_label": "Proterozoic Eon",
+      "method": "cgi"
+    },
+    {
+      "ics": "Quaternary",
+      "bgs": "Q",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/Q",
+      "bgs_label": "Quaternary Period",
+      "method": "cgi"
+    },
+    {
+      "ics": "Rhaetian",
+      "bgs": "TR",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/TR",
+      "bgs_label": "Rhaetian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Rhuddanian",
+      "bgs": "SR",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/SR",
+      "bgs_label": "Rhuddanian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Rhyacian",
+      "bgs": "AH",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/AH",
+      "bgs_label": "Rhyacian Period",
+      "method": "cgi"
+    },
+    {
+      "ics": "Roadian",
+      "bgs": "PUR",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/PUR",
+      "bgs_label": "Roadian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Rupelian",
+      "bgs": "GR",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/GR",
+      "bgs_label": "Rupelian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Sakmarian",
+      "bgs": "PS",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/PS",
+      "bgs_label": "Sakmarian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Sandbian",
+      "bgs": "OSA",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/OSA",
+      "bgs_label": "Sandbian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Santonian",
+      "bgs": "KS",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/KS",
+      "bgs_label": "Santonian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Selandian",
+      "bgs": "GS",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/GS",
+      "bgs_label": "Selandian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Serpukhovian",
+      "bgs": "CSR",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/CSR",
+      "bgs_label": "Serpukhovian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Serravallian",
+      "bgs": "NS",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/NS",
+      "bgs_label": "Serravallian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Sheinwoodian",
+      "bgs": "SS",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/SS",
+      "bgs_label": "Sheinwoodian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Siderian",
+      "bgs": "AS",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/AS",
+      "bgs_label": "Siderian Period",
+      "method": "cgi"
+    },
+    {
+      "ics": "Silurian",
+      "bgs": "S",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/S",
+      "bgs_label": "Silurian Period",
+      "method": "cgi"
+    },
+    {
+      "ics": "Sinemurian",
+      "bgs": "JS",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/JS",
+      "bgs_label": "Sinemurian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Statherian",
+      "bgs": "AQ",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/AQ",
+      "bgs_label": "Statherian Period",
+      "method": "cgi"
+    },
+    {
+      "ics": "Stenian",
+      "bgs": "AI",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/AI",
+      "bgs_label": "Stenian Period",
+      "method": "cgi"
+    },
+    {
+      "ics": "Telychian",
+      "bgs": "ST",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/ST",
+      "bgs_label": "Telychian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Terreneuvian",
+      "bgs": "EN",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/EN",
+      "bgs_label": "Terreneuvian Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "Thanetian",
+      "bgs": "GT",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/GT",
+      "bgs_label": "Thanetian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Tithonian",
+      "bgs": "JI",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/JI",
+      "bgs_label": "Tithonian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Toarcian",
+      "bgs": "JT",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/JT",
+      "bgs_label": "Toarcian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Tonian",
+      "bgs": "AT",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/AT",
+      "bgs_label": "Tonian Period",
+      "method": "cgi"
+    },
+    {
+      "ics": "Tortonian",
+      "bgs": "NT",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/NT",
+      "bgs_label": "Tortonian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Tournaisian",
+      "bgs": "CT",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/CT",
+      "bgs_label": "Tournaisian Age",
+      "method": "label"
+    },
+    {
+      "ics": "Tremadocian",
+      "bgs": "OTR",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/OTR",
+      "bgs_label": "Tremadocian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Triassic",
+      "bgs": "T",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/T",
+      "bgs_label": "Triassic Period",
+      "method": "cgi"
+    },
+    {
+      "ics": "Turonian",
+      "bgs": "KT",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/KT",
+      "bgs_label": "Turonian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "UpperCretaceous",
+      "bgs": "KU",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/KU",
+      "bgs_label": "Late Cretaceous Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "UpperDevonian",
+      "bgs": "DU",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/DU",
+      "bgs_label": "Late Devonian Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "UpperJurassic",
+      "bgs": "JU",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/JU",
+      "bgs_label": "Late Jurassic Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "UpperMississippian",
+      "bgs": "CMIL",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/CMIL",
+      "bgs_label": "Late Mississippian Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "UpperOrdovician",
+      "bgs": "OLA",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/OLA",
+      "bgs_label": "Late Ordovician Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "UpperPennsylvanian",
+      "bgs": "CPEL",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/CPEL",
+      "bgs_label": "Late Pennsylvanian Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "UpperPleistocene",
+      "bgs": "Q2T",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/Q2T",
+      "bgs_label": "Upper Pleistocene Age (unnamed)",
+      "method": "cgi"
+    },
+    {
+      "ics": "UpperTriassic",
+      "bgs": "TU",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/TU",
+      "bgs_label": "Late Triassic Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "Valanginian",
+      "bgs": "KV",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/KV",
+      "bgs_label": "Valanginian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Visean",
+      "bgs": "CV",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/CV",
+      "bgs_label": "Visean Age",
+      "method": "label"
+    },
+    {
+      "ics": "Wenlock",
+      "bgs": "SW",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/SW",
+      "bgs_label": "Wenlock Epoch",
+      "method": "cgi"
+    },
+    {
+      "ics": "Wordian",
+      "bgs": "PUD",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/PUD",
+      "bgs_label": "Wordian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Wuchiapingian",
+      "bgs": "PUW",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/PUW",
+      "bgs_label": "Wuchiapingian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Wuliuan",
+      "bgs": "E05",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/E05",
+      "bgs_label": "Wuliuan Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Ypresian",
+      "bgs": "GY",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/GY",
+      "bgs_label": "Ypresian Age",
+      "method": "cgi"
+    },
+    {
+      "ics": "Zanclean",
+      "bgs": "NZ",
+      "bgs_iri": "http://data.bgs.ac.uk/id/Geochronology/Division/NZ",
+      "bgs_label": "Zanclean Age",
+      "method": "cgi"
+    }
+  ],
+  "fallbacks": [],
+  "conflicts": [
+    {
+      "ics": "Chattian",
+      "chosen": "GC",
+      "rejected": [
+        "GOL (Late Oligocene, SUB-EPOCH)"
+      ],
+      "reason": "several BGS concepts match CGI Chattian; kept the Age-rank one"
+    },
+    {
+      "ics": "Chibanian",
+      "chosen": "Q2I",
+      "rejected": [
+        "QPM (Mid Pleistocene, SUB-EPOCH)"
+      ],
+      "reason": "several BGS concepts match CGI Chibanian; kept the Age-rank one"
+    },
+    {
+      "ics": "Danian",
+      "chosen": "GD",
+      "rejected": [
+        "GPE (Early Paleocene, SUB-EPOCH)"
+      ],
+      "reason": "several BGS concepts match CGI Danian; kept the Age-rank one"
+    },
+    {
+      "ics": "LowerMississippian",
+      "chosen": "CMIE",
+      "rejected": [
+        "CF (Courceyan Substage, SUBSTAGE)",
+        "CT (Tournaisian Age, AGE)"
+      ],
+      "reason": "several BGS concepts match CGI LowerMississippian; kept the Epoch-rank one"
+    },
+    {
+      "ics": "Piacenzian",
+      "chosen": "NC",
+      "rejected": [
+        "NOL (Late Pliocene, SUB-EPOCH)"
+      ],
+      "reason": "several BGS concepts match CGI Piacenzian; kept the Age-rank one"
+    },
+    {
+      "ics": "Priabonian",
+      "chosen": "GI",
+      "rejected": [
+        "GEL (Late Eocene, SUB-EPOCH)"
+      ],
+      "reason": "several BGS concepts match CGI Priabonian; kept the Age-rank one"
+    },
+    {
+      "ics": "Rupelian",
+      "chosen": "GR",
+      "rejected": [
+        "GOE (Early Oligocene, SUB-EPOCH)"
+      ],
+      "reason": "several BGS concepts match CGI Rupelian; kept the Age-rank one"
+    },
+    {
+      "ics": "Selandian",
+      "chosen": "GS",
+      "rejected": [
+        "GPM (Mid Paleocene, SUB-EPOCH)"
+      ],
+      "reason": "several BGS concepts match CGI Selandian; kept the Age-rank one"
+    },
+    {
+      "ics": "Thanetian",
+      "chosen": "GT",
+      "rejected": [
+        "GPL (Late Paleocene, SUB-EPOCH)"
+      ],
+      "reason": "several BGS concepts match CGI Thanetian; kept the Age-rank one"
+    },
+    {
+      "ics": "Tremadocian",
+      "chosen": "OTR",
+      "rejected": [
+        "O1 (Tremadoc Series, SERIES)"
+      ],
+      "reason": "several BGS concepts match CGI Tremadocian; kept the Age-rank one"
+    },
+    {
+      "ics": "UpperPleistocene",
+      "chosen": "Q2T",
+      "rejected": [
+        "QPL (Late Pleistocene, SUB-EPOCH)"
+      ],
+      "reason": "several BGS concepts match CGI UpperPleistocene; kept the Age-rank one"
+    },
+    {
+      "ics": "Ypresian",
+      "chosen": "GY",
+      "rejected": [
+        "GEE (Early Eocene, SUB-EPOCH)"
+      ],
+      "reason": "several BGS concepts match CGI Ypresian; kept the Age-rank one"
+    },
+    {
+      "ics": "Zanclean",
+      "chosen": "NZ",
+      "rejected": [
+        "NOE (Early Pliocene, SUB-EPOCH)"
+      ],
+      "reason": "several BGS concepts match CGI Zanclean; kept the Age-rank one"
+    }
+  ],
+  "age_differences": [
+    {
+      "ics": "Anisian",
+      "label": "Anisian",
+      "bgs": "TA",
+      "bgs_base": 246.7,
+      "ics_base": 247.0,
+      "bgs_top": 241.5,
+      "ics_top": 241.464
+    },
+    {
+      "ics": "Aquitanian",
+      "label": "Aquitanian",
+      "bgs": "NA",
+      "bgs_base": 23.04,
+      "ics_base": 23.03,
+      "bgs_top": 20.45,
+      "ics_top": 20.45
+    },
+    {
+      "ics": "Archean",
+      "label": "Archean",
+      "bgs": "AR",
+      "bgs_base": 4000.0,
+      "ics_base": 4031.0,
+      "bgs_top": 2500.0,
+      "ics_top": 2500.0
+    },
+    {
+      "ics": "Artinskian",
+      "label": "Artinskian",
+      "bgs": "PI",
+      "bgs_base": 290.5,
+      "ics_base": 290.1,
+      "bgs_top": 283.3,
+      "ics_top": 283.3
+    },
+    {
+      "ics": "Asselian",
+      "label": "Asselian",
+      "bgs": "PA",
+      "bgs_base": 298.9,
+      "ics_base": 298.9,
+      "bgs_top": 293.5,
+      "ics_top": 293.52
+    },
+    {
+      "ics": "Barremian",
+      "label": "Barremian",
+      "bgs": "KB",
+      "bgs_base": 126.5,
+      "ics_base": 125.77,
+      "bgs_top": 121.4,
+      "ics_top": 121.4
+    },
+    {
+      "ics": "Bartonian",
+      "label": "Bartonian",
+      "bgs": "GB",
+      "bgs_base": 41.0,
+      "ics_base": 41.03,
+      "bgs_top": 37.7,
+      "ics_top": 37.71
+    },
+    {
+      "ics": "Berriasian",
+      "label": "Berriasian",
+      "bgs": "KR",
+      "bgs_base": 143.1,
+      "ics_base": 143.1,
+      "bgs_top": 137.7,
+      "ics_top": 137.05
+    },
+    {
+      "ics": "Burdigalian",
+      "label": "Burdigalian",
+      "bgs": "NB",
+      "bgs_base": 20.45,
+      "ics_base": 20.45,
+      "bgs_top": 15.99,
+      "ics_top": 15.98
+    },
+    {
+      "ics": "Calabrian",
+      "label": "Calabrian",
+      "bgs": "Q2C",
+      "bgs_base": 1.8,
+      "ics_base": 1.8,
+      "bgs_top": 0.78,
+      "ics_top": 0.774
+    },
+    {
+      "ics": "Cambrian",
+      "label": "Cambrian",
+      "bgs": "E",
+      "bgs_base": 541.0,
+      "ics_base": 538.8,
+      "bgs_top": 486.9,
+      "ics_top": 486.85
+    },
+    {
+      "ics": "CambrianSeries2",
+      "label": "Cambrian Series 2",
+      "bgs": "E2",
+      "bgs_base": 521.0,
+      "ics_base": 521.0,
+      "bgs_top": 509.0,
+      "ics_top": 506.5
+    },
+    {
+      "ics": "CambrianStage10",
+      "label": "Cambrian Stage 10",
+      "bgs": "E10",
+      "bgs_base": 491.0,
+      "ics_base": 491.0,
+      "bgs_top": 486.9,
+      "ics_top": 486.85
+    },
+    {
+      "ics": "CambrianStage4",
+      "label": "Cambrian Stage 4",
+      "bgs": "E04",
+      "bgs_base": 514.5,
+      "ics_base": 514.5,
+      "bgs_top": 509.0,
+      "ics_top": 506.5
+    },
+    {
+      "ics": "Campanian",
+      "label": "Campanian",
+      "bgs": "KC",
+      "bgs_base": 83.7,
+      "ics_base": 83.6,
+      "bgs_top": 72.2,
+      "ics_top": 72.2
+    },
+    {
+      "ics": "Capitanian",
+      "label": "Capitanian",
+      "bgs": "PUC",
+      "bgs_base": 264.3,
+      "ics_base": 264.28,
+      "bgs_top": 259.5,
+      "ics_top": 259.857
+    },
+    {
+      "ics": "Carboniferous",
+      "label": "Carboniferous",
+      "bgs": "C",
+      "bgs_base": 359.3,
+      "ics_base": 358.86,
+      "bgs_top": 298.9,
+      "ics_top": 298.9
+    },
+    {
+      "ics": "Changhsingian",
+      "label": "Changhsingian",
+      "bgs": "PUH",
+      "bgs_base": 254.2,
+      "ics_base": 254.14,
+      "bgs_top": 251.9,
+      "ics_top": 251.902
+    },
+    {
+      "ics": "Chibanian",
+      "label": "Chibanian",
+      "bgs": "Q2I",
+      "bgs_base": 0.78,
+      "ics_base": 0.774,
+      "bgs_top": 0.126,
+      "ics_top": 0.129
+    },
+    {
+      "ics": "Coniacian",
+      "label": "Coniacian",
+      "bgs": "KO",
+      "bgs_base": 89.4,
+      "ics_base": 89.8,
+      "bgs_top": 85.7,
+      "ics_top": 85.7
+    },
+    {
+      "ics": "Danian",
+      "label": "Danian",
+      "bgs": "GD",
+      "bgs_base": 66.0,
+      "ics_base": 66.0,
+      "bgs_top": 61.7,
+      "ics_top": 61.66
+    },
+    {
+      "ics": "Devonian",
+      "label": "Devonian",
+      "bgs": "D",
+      "bgs_base": 419.0,
+      "ics_base": 419.62,
+      "bgs_top": 359.3,
+      "ics_top": 358.86
+    },
+    {
+      "ics": "Ediacaran",
+      "label": "Ediacaran",
+      "bgs": "AD",
+      "bgs_base": 635.0,
+      "ics_base": 635.0,
+      "bgs_top": 541.0,
+      "ics_top": 538.8
+    },
+    {
+      "ics": "Eifelian",
+      "label": "Eifelian",
+      "bgs": "DI",
+      "bgs_base": 394.3,
+      "ics_base": 393.47,
+      "bgs_top": 385.3,
+      "ics_top": 387.95
+    },
+    {
+      "ics": "Emsian",
+      "label": "Emsian",
+      "bgs": "DE",
+      "bgs_base": 410.5,
+      "ics_base": 410.62,
+      "bgs_top": 394.3,
+      "ics_top": 393.47
+    },
+    {
+      "ics": "Eoarchean",
+      "label": "Eoarchean",
+      "bgs": "AE",
+      "bgs_base": 4000.0,
+      "ics_base": 4031.0,
+      "bgs_top": 3600.0,
+      "ics_top": 3600.0
+    },
+    {
+      "ics": "Famennian",
+      "label": "Famennian",
+      "bgs": "DA",
+      "bgs_base": 371.1,
+      "ics_base": 372.15,
+      "bgs_top": 359.3,
+      "ics_top": 358.86
+    },
+    {
+      "ics": "Fortunian",
+      "label": "Fortunian",
+      "bgs": "EFT",
+      "bgs_base": 541.0,
+      "ics_base": 538.8,
+      "bgs_top": 529.0,
+      "ics_top": 529.0
+    },
+    {
+      "ics": "Frasnian",
+      "label": "Frasnian",
+      "bgs": "DR",
+      "bgs_base": 378.9,
+      "ics_base": 382.31,
+      "bgs_top": 371.1,
+      "ics_top": 372.15
+    },
+    {
+      "ics": "Furongian",
+      "label": "Furongian",
+      "bgs": "EF",
+      "bgs_base": 497.0,
+      "ics_base": 497.0,
+      "bgs_top": 486.9,
+      "ics_top": 486.85
+    },
+    {
+      "ics": "Givetian",
+      "label": "Givetian",
+      "bgs": "DV",
+      "bgs_base": 385.3,
+      "ics_base": 387.95,
+      "bgs_top": 378.9,
+      "ics_top": 382.31
+    },
+    {
+      "ics": "Greenlandian",
+      "label": "Greenlandian",
+      "bgs": "QHE",
+      "bgs_base": 0.0118,
+      "ics_base": 0.0117,
+      "bgs_top": 0.008236,
+      "ics_top": 0.0082
+    },
+    {
+      "ics": "Guadalupian",
+      "label": "Guadalupian",
+      "bgs": "PUG",
+      "bgs_base": 274.4,
+      "ics_base": 274.4,
+      "bgs_top": 259.5,
+      "ics_top": 259.857
+    },
+    {
+      "ics": "Hadean",
+      "label": "Hadean",
+      "bgs": "A1",
+      "bgs_base": 4560.0,
+      "ics_base": 4567.0,
+      "bgs_top": 4000.0,
+      "ics_top": 4031.0
+    },
+    {
+      "ics": "Hauterivian",
+      "label": "Hauterivian",
+      "bgs": "KH",
+      "bgs_base": 132.6,
+      "ics_base": 132.6,
+      "bgs_top": 126.5,
+      "ics_top": 125.77
+    },
+    {
+      "ics": "Holocene",
+      "label": "Holocene",
+      "bgs": "QH",
+      "bgs_base": 0.0118,
+      "ics_base": 0.0117,
+      "bgs_top": 0.0,
+      "ics_top": 0.0
+    },
+    {
+      "ics": "Induan",
+      "label": "Induan",
+      "bgs": "TI",
+      "bgs_base": 251.9,
+      "ics_base": 251.902,
+      "bgs_top": 249.9,
+      "ics_top": 250.8
+    },
+    {
+      "ics": "Ladinian",
+      "label": "Ladinian",
+      "bgs": "TD",
+      "bgs_base": 241.5,
+      "ics_base": 241.464,
+      "bgs_top": 237.0,
+      "ics_top": 237.0
+    },
+    {
+      "ics": "Langhian",
+      "label": "Langhian",
+      "bgs": "NL",
+      "bgs_base": 15.99,
+      "ics_base": 15.98,
+      "bgs_top": 13.82,
+      "ics_top": 13.82
+    },
+    {
+      "ics": "Lochkovian",
+      "label": "Lochkovian",
+      "bgs": "DO",
+      "bgs_base": 419.0,
+      "ics_base": 419.62,
+      "bgs_top": 412.4,
+      "ics_top": 413.02
+    },
+    {
+      "ics": "Lopingian",
+      "label": "Lopingian",
+      "bgs": "PUL",
+      "bgs_base": 259.5,
+      "ics_base": 259.857,
+      "bgs_top": 251.9,
+      "ics_top": 251.902
+    },
+    {
+      "ics": "LowerDevonian",
+      "label": "Early Devonian",
+      "bgs": "DL",
+      "bgs_base": 419.0,
+      "ics_base": 419.62,
+      "bgs_top": 394.3,
+      "ics_top": 393.47
+    },
+    {
+      "ics": "LowerMississippian",
+      "label": "Early Mississippian",
+      "bgs": "CMIE",
+      "bgs_base": 359.3,
+      "ics_base": 358.86,
+      "bgs_top": 346.7,
+      "ics_top": 346.7
+    },
+    {
+      "ics": "LowerOrdovician",
+      "label": "Early Ordovician",
+      "bgs": "OEA",
+      "bgs_base": 486.9,
+      "ics_base": 486.85,
+      "bgs_top": 471.3,
+      "ics_top": 471.3
+    },
+    {
+      "ics": "LowerTriassic",
+      "label": "Early Triassic",
+      "bgs": "TE",
+      "bgs_base": 251.9,
+      "ics_base": 251.902,
+      "bgs_top": 246.7,
+      "ics_top": 247.0
+    },
+    {
+      "ics": "Ludlow",
+      "label": "Ludlow",
+      "bgs": "SU",
+      "bgs_base": 426.7,
+      "ics_base": 426.7,
+      "bgs_top": 422.7,
+      "ics_top": 419.62
+    },
+    {
+      "ics": "Lutetian",
+      "label": "Lutetian",
+      "bgs": "GL",
+      "bgs_base": 48.1,
+      "ics_base": 48.07,
+      "bgs_top": 41.0,
+      "ics_top": 41.03
+    },
+    {
+      "ics": "Meghalayan",
+      "label": "Meghalayan",
+      "bgs": "QHL",
+      "bgs_base": 0.00425,
+      "ics_base": 0.0042,
+      "bgs_top": 0.0,
+      "ics_top": 0.0
+    },
+    {
+      "ics": "Mesozoic",
+      "label": "Mesozoic",
+      "bgs": "MZ",
+      "bgs_base": 251.9,
+      "ics_base": 251.902,
+      "bgs_top": 66.0,
+      "ics_top": 66.0
+    },
+    {
+      "ics": "Messinian",
+      "label": "Messinian",
+      "bgs": "NE",
+      "bgs_base": 7.25,
+      "ics_base": 7.246,
+      "bgs_top": 5.33,
+      "ics_top": 5.333
+    },
+    {
+      "ics": "Miaolingian",
+      "label": "Miaolingian",
+      "bgs": "E3",
+      "bgs_base": 509.0,
+      "ics_base": 506.5,
+      "bgs_top": 497.0,
+      "ics_top": 497.0
+    },
+    {
+      "ics": "MiddleDevonian",
+      "label": "Mid Devonian",
+      "bgs": "DM",
+      "bgs_base": 394.3,
+      "ics_base": 393.47,
+      "bgs_top": 378.9,
+      "ics_top": 382.31
+    },
+    {
+      "ics": "MiddleTriassic",
+      "label": "Mid Triassic",
+      "bgs": "TM",
+      "bgs_base": 246.7,
+      "ics_base": 247.0,
+      "bgs_top": 237.0,
+      "ics_top": 237.0
+    },
+    {
+      "ics": "Miocene",
+      "label": "Miocene",
+      "bgs": "NM",
+      "bgs_base": 23.04,
+      "ics_base": 23.04,
+      "bgs_top": 5.33,
+      "ics_top": 5.333
+    },
+    {
+      "ics": "Mississippian",
+      "label": "Mississippian",
+      "bgs": "CMI",
+      "bgs_base": 359.3,
+      "ics_base": 358.86,
+      "bgs_top": 323.4,
+      "ics_top": 323.4
+    },
+    {
+      "ics": "Neoproterozoic",
+      "label": "Neoproterozoic",
+      "bgs": "AZ",
+      "bgs_base": 1000.0,
+      "ics_base": 1000.0,
+      "bgs_top": 541.0,
+      "ics_top": 538.8
+    },
+    {
+      "ics": "Northgrippian",
+      "label": "Northgrippian",
+      "bgs": "QHM",
+      "bgs_base": 0.008236,
+      "ics_base": 0.0082,
+      "bgs_top": 0.00425,
+      "ics_top": 0.0042
+    },
+    {
+      "ics": "Olenekian",
+      "label": "Olenekian",
+      "bgs": "TO",
+      "bgs_base": 249.9,
+      "ics_base": 250.8,
+      "bgs_top": 246.7,
+      "ics_top": 247.0
+    },
+    {
+      "ics": "Ordovician",
+      "label": "Ordovician",
+      "bgs": "O",
+      "bgs_base": 486.9,
+      "ics_base": 486.85,
+      "bgs_top": 443.1,
+      "ics_top": 443.1
+    },
+    {
+      "ics": "Paleozoic",
+      "label": "Paleozoic",
+      "bgs": "RZ",
+      "bgs_base": 541.0,
+      "ics_base": 538.8,
+      "bgs_top": 251.9,
+      "ics_top": 251.902
+    },
+    {
+      "ics": "Permian",
+      "label": "Permian",
+      "bgs": "P",
+      "bgs_base": 298.9,
+      "ics_base": 298.9,
+      "bgs_top": 251.9,
+      "ics_top": 251.902
+    },
+    {
+      "ics": "Phanerozoic",
+      "label": "Phanerozoic",
+      "bgs": "FH",
+      "bgs_base": 541.0,
+      "ics_base": 538.8,
+      "bgs_top": 0.0,
+      "ics_top": 0.0
+    },
+    {
+      "ics": "Pleistocene",
+      "label": "Pleistocene",
+      "bgs": "QP",
+      "bgs_base": 2.58,
+      "ics_base": 2.58,
+      "bgs_top": 0.0118,
+      "ics_top": 0.0117
+    },
+    {
+      "ics": "Pliocene",
+      "label": "Pliocene",
+      "bgs": "NP",
+      "bgs_base": 5.33,
+      "ics_base": 5.333,
+      "bgs_top": 2.58,
+      "ics_top": 2.58
+    },
+    {
+      "ics": "Pragian",
+      "label": "Pragian",
+      "bgs": "DP",
+      "bgs_base": 412.4,
+      "ics_base": 413.02,
+      "bgs_top": 410.5,
+      "ics_top": 410.62
+    },
+    {
+      "ics": "Precambrian",
+      "label": "Precambrian",
+      "bgs": "A",
+      "bgs_base": 4560.0,
+      "ics_base": 4567.0,
+      "bgs_top": 541.0,
+      "ics_top": 538.8
+    },
+    {
+      "ics": "Priabonian",
+      "label": "Priabonian",
+      "bgs": "GI",
+      "bgs_base": 37.7,
+      "ics_base": 37.71,
+      "bgs_top": 33.9,
+      "ics_top": 33.9
+    },
+    {
+      "ics": "Pridoli",
+      "label": "Pridoli",
+      "bgs": "SO",
+      "bgs_base": 422.7,
+      "ics_base": 422.7,
+      "bgs_top": 419.0,
+      "ics_top": 419.62
+    },
+    {
+      "ics": "Proterozoic",
+      "label": "Proterozoic",
+      "bgs": "AP",
+      "bgs_base": 2500.0,
+      "ics_base": 2500.0,
+      "bgs_top": 541.0,
+      "ics_top": 538.8
+    },
+    {
+      "ics": "Roadian",
+      "label": "Roadian",
+      "bgs": "PUR",
+      "bgs_base": 274.4,
+      "ics_base": 274.4,
+      "bgs_top": 269.2,
+      "ics_top": 266.9
+    },
+    {
+      "ics": "Sakmarian",
+      "label": "Sakmarian",
+      "bgs": "PS",
+      "bgs_base": 293.5,
+      "ics_base": 293.52,
+      "bgs_top": 290.5,
+      "ics_top": 290.1
+    },
+    {
+      "ics": "Santonian",
+      "label": "Santonian",
+      "bgs": "KS",
+      "bgs_base": 85.7,
+      "ics_base": 85.7,
+      "bgs_top": 83.7,
+      "ics_top": 83.6
+    },
+    {
+      "ics": "Selandian",
+      "label": "Selandian",
+      "bgs": "GS",
+      "bgs_base": 61.7,
+      "ics_base": 61.66,
+      "bgs_top": 59.2,
+      "ics_top": 59.24
+    },
+    {
+      "ics": "Silurian",
+      "label": "Silurian",
+      "bgs": "S",
+      "bgs_base": 443.1,
+      "ics_base": 443.1,
+      "bgs_top": 419.0,
+      "ics_top": 419.62
+    },
+    {
+      "ics": "Terreneuvian",
+      "label": "Terreneuvian",
+      "bgs": "EN",
+      "bgs_base": 541.0,
+      "ics_base": 538.8,
+      "bgs_top": 521.0,
+      "ics_top": 521.0
+    },
+    {
+      "ics": "Thanetian",
+      "label": "Thanetian",
+      "bgs": "GT",
+      "bgs_base": 59.2,
+      "ics_base": 59.24,
+      "bgs_top": 56.0,
+      "ics_top": 56.0
+    },
+    {
+      "ics": "Tortonian",
+      "label": "Tortonian",
+      "bgs": "NT",
+      "bgs_base": 11.63,
+      "ics_base": 11.63,
+      "bgs_top": 7.25,
+      "ics_top": 7.246
+    },
+    {
+      "ics": "Tournaisian",
+      "label": "Tournaisian",
+      "bgs": "CT",
+      "bgs_base": 359.3,
+      "ics_base": 358.86,
+      "bgs_top": 346.7,
+      "ics_top": 346.7
+    },
+    {
+      "ics": "Tremadocian",
+      "label": "Tremadocian",
+      "bgs": "OTR",
+      "bgs_base": 486.9,
+      "ics_base": 486.85,
+      "bgs_top": 477.1,
+      "ics_top": 477.1
+    },
+    {
+      "ics": "Triassic",
+      "label": "Triassic",
+      "bgs": "T",
+      "bgs_base": 251.9,
+      "ics_base": 251.902,
+      "bgs_top": 201.4,
+      "ics_top": 201.4
+    },
+    {
+      "ics": "Turonian",
+      "label": "Turonian",
+      "bgs": "KT",
+      "bgs_base": 93.9,
+      "ics_base": 93.9,
+      "bgs_top": 89.4,
+      "ics_top": 89.8
+    },
+    {
+      "ics": "UpperDevonian",
+      "label": "Late Devonian",
+      "bgs": "DU",
+      "bgs_base": 378.9,
+      "ics_base": 382.31,
+      "bgs_top": 359.3,
+      "ics_top": 358.86
+    },
+    {
+      "ics": "UpperPleistocene",
+      "label": "Upper Pleistocene Age (unnamed)",
+      "bgs": "Q2T",
+      "bgs_base": 0.126,
+      "ics_base": 0.129,
+      "bgs_top": 0.0118,
+      "ics_top": 0.0117
+    },
+    {
+      "ics": "Valanginian",
+      "label": "Valanginian",
+      "bgs": "KV",
+      "bgs_base": 137.7,
+      "ics_base": 137.05,
+      "bgs_top": 132.6,
+      "ics_top": 132.6
+    },
+    {
+      "ics": "Wordian",
+      "label": "Wordian",
+      "bgs": "PUD",
+      "bgs_base": 269.2,
+      "ics_base": 266.9,
+      "bgs_top": 264.3,
+      "ics_top": 264.28
+    },
+    {
+      "ics": "Wuchiapingian",
+      "label": "Wuchiapingian",
+      "bgs": "PUW",
+      "bgs_base": 259.5,
+      "ics_base": 259.857,
+      "bgs_top": 254.2,
+      "ics_top": 254.14
+    },
+    {
+      "ics": "Wuliuan",
+      "label": "Wuliuan",
+      "bgs": "E05",
+      "bgs_base": 509.0,
+      "ics_base": 506.5,
+      "bgs_top": 504.5,
+      "ics_top": 504.5
+    },
+    {
+      "ics": "Ypresian",
+      "label": "Ypresian",
+      "bgs": "GY",
+      "bgs_base": 56.0,
+      "ics_base": 56.0,
+      "bgs_top": 48.1,
+      "ics_top": 48.07
+    },
+    {
+      "ics": "Zanclean",
+      "label": "Zanclean",
+      "bgs": "NZ",
+      "bgs_base": 5.33,
+      "ics_base": 5.333,
+      "bgs_top": 3.6,
+      "ics_top": 3.6
+    }
+  ],
+  "colour_fallbacks": [
+    {
+      "ics": "Greenlandian",
+      "bgs": "QHE",
+      "label": "Greenlandian"
+    },
+    {
+      "ics": "Meghalayan",
+      "bgs": "QHL",
+      "label": "Meghalayan"
+    },
+    {
+      "ics": "Northgrippian",
+      "bgs": "QHM",
+      "label": "Northgrippian"
+    },
+    {
+      "ics": "Visean",
+      "bgs": "CV",
+      "label": "Visean"
+    }
+  ],
+  "regional": {
+    "nw-europe-stage": 14,
+    "nw-europe-substage": 4,
+    "uk-substage": 33,
+    "uk-stage": 30,
+    "uk-series": 8,
+    "mis": 108
+  },
+  "skipped": [
+    "A3 Neoproterozoic Period III [PERIOD] deprecated - not an ICS unit or regional column",
+    "CAA Westphalian Substage A [SUBSTAGE] deprecated",
+    "CBB Westphalian Substage B [SUBSTAGE] deprecated",
+    "CCC Westphalian Substage C [SUBSTAGE] deprecated",
+    "CD Westphalian Substage D [SUBSTAGE] deprecated",
+    "CL Dinantian Subsystem [SUBSYSTEM] deprecated - not an ICS unit or regional column",
+    "CU Silesian Subsystem [SUBSYSTEM] deprecated - not an ICS unit or regional column",
+    "ET Tremadoc Series [Obsolete code] [SERIES] deprecated",
+    "GEE Early Eocene [SUB-EPOCH] - not an ICS unit or regional column",
+    "GEL Late Eocene [SUB-EPOCH] - not an ICS unit or regional column",
+    "GEM Mid Eocene [SUB-EPOCH] - not an ICS unit or regional column",
+    "GOE Early Oligocene [SUB-EPOCH] - not an ICS unit or regional column",
+    "GOL Late Oligocene [SUB-EPOCH] - not an ICS unit or regional column",
+    "GPE Early Paleocene [SUB-EPOCH] - not an ICS unit or regional column",
+    "GPL Late Paleocene [SUB-EPOCH] - not an ICS unit or regional column",
+    "GPM Mid Paleocene [SUB-EPOCH] - not an ICS unit or regional column",
+    "IZT Tertiary [-] deprecated - not an ICS unit or regional column",
+    "JP Portlandian Stage [STAGE] deprecated",
+    "JV Volgian Stage [STAGE] deprecated",
+    "KZ Ryazanian Stage [STAGE] deprecated",
+    "N1 Neogene Period [Pre-2009 definition] [PERIOD] deprecated - not an ICS unit or regional column",
+    "NI Piacenzian Age [Pre-2009 definition] [AGE] deprecated - not an ICS unit or regional column",
+    "NME Early Miocene [SUB-EPOCH] - not an ICS unit or regional column",
+    "NML Late Miocene [SUB-EPOCH] - not an ICS unit or regional column",
+    "NMM Mid Miocene [SUB-EPOCH] - not an ICS unit or regional column",
+    "NO Pliocene Epoch [Pre-2009 definition] [EPOCH] deprecated - not an ICS unit or regional column",
+    "NOE Early Pliocene [SUB-EPOCH] - not an ICS unit or regional column",
+    "NOL Late Pliocene [SUB-EPOCH] - not an ICS unit or regional column",
+    "NW Waltonian Age [AGE] deprecated - not an ICS unit or regional column",
+    "OC Caradoc Series [Historical British usage] [SERIES] deprecated",
+    "OD Llandeilo Series [Historical British usage] [SERIES] deprecated",
+    "OV Llanvirn Series [Historical British usage] [SERIES] deprecated",
+    "PF Ufimian-Kazanian Age [AGE] deprecated - not an ICS unit or regional column",
+    "PL Early Permian Epoch [EPOCH] deprecated - not an ICS unit or regional column",
+    "PT Tatarian Age [AGE] deprecated - not an ICS unit or regional column",
+    "PU Late Permian Epoch [EPOCH] deprecated - not an ICS unit or regional column",
+    "Q1 Quaternary Period [Obsolete definition] [PERIOD] deprecated - not an ICS unit or regional column",
+    "Q2 Pleistocene Epoch [Obsolete definition] [EPOCH] deprecated - not an ICS unit or regional column",
+    "QE Baventian Stage [STAGE] deprecated",
+    "QF Flandrian Age [AGE] deprecated - not an ICS unit or regional column",
+    "QPE Early Pleistocene [SUB-EPOCH] - not an ICS unit or regional column",
+    "QPL Late Pleistocene [SUB-EPOCH] - not an ICS unit or regional column",
+    "QPM Mid Pleistocene [SUB-EPOCH] - not an ICS unit or regional column",
+    "RE Early Paleozoic [SUB-ERA] - not an ICS unit or regional column",
+    "RL Late Paleozoic [SUB-ERA] - not an ICS unit or regional column",
+    "TL Scythian Age [AGE] deprecated - not an ICS unit or regional column",
+    "XR Present Day [-] - not an ICS unit or regional column",
+    "XX Geological Time [-] - not an ICS unit or regional column"
+  ],
+  "mis_inferred": [
+    "QMIS104",
+    "QMIS103",
+    "QMIS102",
+    "QMIS101",
+    "QMIS100",
+    "QMIS099",
+    "QMIS098",
+    "QMIS097",
+    "QMIS096",
+    "QMIS095",
+    "QMIS094",
+    "QMIS093",
+    "QMIS092",
+    "QMIS091",
+    "QMIS090",
+    "QMIS089",
+    "QMIS088",
+    "QMIS087",
+    "QMIS086",
+    "QMIS085",
+    "QMIS084",
+    "QMIS083",
+    "QMIS082",
+    "QMIS081",
+    "QMIS080",
+    "QMIS079",
+    "QMIS078",
+    "QMIS077",
+    "QMIS076",
+    "QMIS075",
+    "QMIS074",
+    "QMIS073",
+    "QMIS072",
+    "QMIS071",
+    "QMIS070",
+    "QMIS069",
+    "QMIS068",
+    "QMIS067",
+    "QMIS066",
+    "QMIS065",
+    "QMIS064",
+    "QMIS063",
+    "QMIS062",
+    "QMIS061",
+    "QMIS060",
+    "QMIS059",
+    "QMIS058",
+    "QMIS057",
+    "QMIS056",
+    "QMIS055",
+    "QMIS054",
+    "QMIS053",
+    "QMIS052",
+    "QMIS051",
+    "QMIS050",
+    "QMIS049",
+    "QMIS048",
+    "QMIS047",
+    "QMIS046",
+    "QMIS045",
+    "QMIS044",
+    "QMIS043",
+    "QMIS042",
+    "QMIS041",
+    "QMIS040",
+    "QMIS039",
+    "QMIS038",
+    "QMIS037",
+    "QMIS036",
+    "QMIS035",
+    "QMIS034",
+    "QMIS033",
+    "QMIS032",
+    "QMIS031",
+    "QMIS030",
+    "QMIS029",
+    "QMIS028",
+    "QMIS027",
+    "QMIS026",
+    "QMIS025",
+    "QMIS024",
+    "QMIS023",
+    "QMIS022",
+    "QMIS021",
+    "QMIS020",
+    "QMIS019",
+    "QMIS018",
+    "QMIS017",
+    "QMIS016",
+    "QMIS015",
+    "QMIS014",
+    "QMIS013"
+  ],
+  "source": {
+    "input": [
+      "https://raw.githubusercontent.com/BritishGeologicalSurvey/vocabularies/9b136fecd55fc2735a640e8abff20b8e066104e1/prez/vocabs/Geochronology.ttl"
+    ],
+    "label": "BritishGeologicalSurvey/vocabularies@9b136fe prez/vocabs/Geochronology.ttl",
+    "bgs_version": "2026-11-03T11:14:26Z"
+  },
+  "summary": {
+    "ics_units": 178,
+    "matched_cgi": 173,
+    "matched_label": 5,
+    "ics_fallbacks": 0,
+    "age_differences": 89,
+    "colour_fallbacks": 4,
+    "regional_units": {
+      "nw-europe-stage": 14,
+      "nw-europe-substage": 4,
+      "uk-substage": 33,
+      "uk-stage": 30,
+      "uk-series": 8,
+      "mis": 108
+    },
+    "mis_inferred": 92,
+    "triples": 5880
+  }
+}

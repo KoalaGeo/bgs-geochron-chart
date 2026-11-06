@@ -1,0 +1,54 @@
+# Pulls the BGS Geochronology Division vocabulary in the shape the chart
+# generator expects. Run against the BGS SPARQL endpoint, or locally against
+# the triples-ql-views TTL files: build_bgs_chart.py does either, so both
+# routes go through exactly this query.
+#
+# Assumes the vocabulary is visible in the default graph (Fuseki
+# unionDefaultGraph, or Prez's /sparql). If it lives only in a named graph,
+# wrap the WHERE patterns in GRAPH ?g { ... }.
+
+PREFIX skos:          <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs:          <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:           <http://www.w3.org/2002/07/owl#>
+PREFIX dcterms:       <http://purl.org/dc/terms/>
+PREFIX reg:           <http://purl.org/linked-data/registry#>
+PREFIX schema:        <https://schema.org/>
+PREFIX geochronology: <http://data.bgs.ac.uk/ref/Geochronology/>
+
+CONSTRUCT {
+  ?c a skos:Concept ;
+     skos:prefLabel ?label ;
+     skos:definition ?definition ;
+     skos:notation ?notation ;
+     skos:broader ?broader ;
+     skos:exactMatch ?match ;
+     reg:status ?status ;
+     geochronology:hasGeochronologyRank ?rank ;
+     geochronology:maxAgeValue ?maxAge ;
+     geochronology:minAgeValue ?minAge ;
+     schema:color ?colour .
+  geochronology:Division skos:prefLabel ?schemeLabel ;
+     owl:versionInfo ?version ;
+     dcterms:modified ?modified .
+}
+WHERE {
+  {
+    ?c skos:inScheme geochronology:Division ;
+       skos:prefLabel ?label .
+    OPTIONAL { ?c skos:definition ?definition }
+    OPTIONAL { ?c skos:notation ?notation }
+    OPTIONAL { ?c skos:broader ?broader }
+    OPTIONAL { ?c skos:exactMatch ?match }
+    OPTIONAL { ?c reg:status ?status }
+    OPTIONAL { ?c geochronology:hasGeochronologyRank ?rank }
+    OPTIONAL { ?c geochronology:maxAgeValue ?maxAge }
+    OPTIONAL { ?c geochronology:minAgeValue ?minAge }
+    OPTIONAL { ?c schema:color ?colour }
+  }
+  UNION
+  {
+    geochronology:Division skos:prefLabel ?schemeLabel .
+    OPTIONAL { geochronology:Division owl:versionInfo ?version }
+    OPTIONAL { geochronology:Division dcterms:modified ?modified }
+  }
+}

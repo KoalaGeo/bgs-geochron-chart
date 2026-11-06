@@ -45,11 +45,19 @@ const handleClick = () => {
 const label = computed(() => {
     return getLabel(props.node.id)
 })
+
+// Numeric ages on each cell let the BGS regional columns line up with rows.
+const ageOf = (t: chartNode['hasBeginning']) => typeof t.inMYA === 'number' ? t.inMYA : t.inMYA.value
+
+const title = computed(() =>
+    props.node.fallback ? `${label.value} (ICS value used for: ${props.node.fallback})` : label.value)
 </script>
 <template>
 <!--     
  -->
-    <div :class="`cell rank-${rank}`" @click="handleClick" :style="`
+    <div :class="`cell rank-${rank}${props.node.fallback ? ' ics-fallback' : ''}`" @click="handleClick"
+        :data-begin="ageOf(props.node.hasBeginning)" :data-end="ageOf(props.node.hasEnd)"
+        :data-leaf="props.node.narrower ? undefined : '1'" :style="`
         --_row-span:${props.node.counts.indirectNarrowers??1};
         --_col-start:${colStart};
         --_col-end:${!props.node.narrower ? 7 : colStart + epochDelta};
@@ -58,7 +66,7 @@ const label = computed(() => {
         --_fg-color:${contrastColor(hexToRgb(props.node.color))};
         --_width: ${rank == 'Sub-Period' || colStart < 4 ? `3rem` : ``};
         --_height:${!props.node.narrower ? getScaledHeight(props.scaling, props.node.hasEnd, props.node.hasBeginning,props.node.rawPercent, props.node.irregularHeight):''};
-    `" :title="label">
+    `" :title="title">
         <p :class="`label ${rank == 'Sub-Period' || colStart < 4 ? `v-text` : ``}`">{{ label }}</p>
         <template v-if="!props.node.narrower">
             <div class="gss-icon" v-if="props.node.ratifiedGSSA">
@@ -95,6 +103,10 @@ const label = computed(() => {
 .rank-Sub-Period{
     /* outline-color: magenta !important; */
     margin-left: -0.5rem !important;
+}
+.ics-fallback {
+    outline-style: dashed !important;
+    outline-offset: -1px;
 }
 .cell {
     container-type: inline-size;

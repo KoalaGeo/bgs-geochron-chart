@@ -1,0 +1,120 @@
+name: Build and deploy BGS Geochronological Chart
+
+# Builds the BGS chart (CHART_SOURCE=bgs) from the BGS vocabularies repo and
+# publishes it to this repository's GitHub Pages site. Runs in forks only;
+# upstream i-c-stratigraphy/chart keeps its own deploy-chart.yml.
+#
+# Optional repository variables (Settings > Secrets and variables > Actions > Variables):
+#   BGS_VOCABS_REPO     default BritishGeologicalSurvey/vocabularies
+#   BGS_VOCABS_REF      branch, tag or commit; default main
+#   BGS_GEOCHRON_PATH   default prez/vocabs/Geochronology.ttl
+#   BGS_SPARQL_ENDPOINT if set, read from this endpoint instead of the TTL
+#   PAGES_BASE_URL      default /<repository name>/ ; use / for a custom domain
+#                       or a <owner>.github.io repository
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  # Pick up vocabulary changes without a commit here.
+  schedule:
+    - cron: "23 4 * * *"
+  # Lets the vocabularies repo trigger a rebuild after it publishes:
+  #   gh api repos/<owner>/<this repo>/dispatches -f event_type=bgs-vocabularies-updated
+  repository_dispatch:
+    types: [bgs-vocabularies-updated]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+env:
+  BGS_VOCABS_REPO: ${{ vars.BGS_VOCABS_REPO || 'BritishGeologicalSurvey/vocabularies' }}
+  BGS_VOCABS_REF: ${{ vars.BGS_VOCABS_REF || 'main' }}
+  BGS_GEOCHRON_PATH: ${{ vars.BGS_GEOCHRON_PATH || 'prez/vocabs/Geochronology.ttl' }}
+  BGS_SPARQL_ENDPOINT: ${{ vars.BGS_SPARQL_ENDPOINT }}
+
+jobs:
+  build:
+    if: github.repository != 'i-c-stratigraphy/chart'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install generator dependencies
+        run: pip install -r bgs/requirements.txt
+
+      - name: Resolve vocabulary source
+        id: source
+        run: |
+          # Pin the run to one commit so every file read comes from the same
+          # snapshot, and the chart notes say exactly which one.
+          sha=$(git ls-remote "https://github.com/${BGS_VOCABS_REPO}" \
+                "refs/heads/${BGS_VOCABS_REF}" "refs/tags/${BGS_VOCABS_REF}" | head -1 | cut -f1)
+          sha=${sha:-$BGS_VOCABS_REF}   # already a commit id
+          echo "url=https://raw.githubusercontent.com/${BGS_VOCABS_REPO}/${sha}/${BGS_GEOCHRON_PATH}" >> "$GITHUB_OUTPUT"
+          echo "label=${BGS_VOCABS_REPO}@${sha:0:7} ${BGS_GEOCHRON_PATH}" >> "$GITHUB_OUTPUT"
+
+      - name: Build chart data
+        env:
+          TTL_URL: ${{ steps.source.outputs.url }}
+          SOURCE_LABEL: ${{ steps.source.outputs.label }}
+        run: |
+          if [ -n "$BGS_SPARQL_ENDPOINT" ]; then
+            python bgs/build_bgs_chart.py --endpoint "$BGS_SPARQL_ENDPOINT"
+          else
+            python bgs/build_bgs_chart.py --ttl "$TTL_URL" --source-label "$SOURCE_LABEL"
+          fi
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+
+      - name: Install pnpm
+        run: npm install --global pnpm@10.28.2
+
+      - name: Install locked chart dependencies
+        working-directory: chart-ui
+        run: pnpm install --frozen-lockfile
+
+      - name: Validate chart data
+        working-directory: chart-ui
+        env:
+          CHART_SOURCE: bgs
+        run: node scripts/check-chart-data.mjs
+
+      - name: Generate the site
+        working-directory: chart-ui
+        env:
+          CHART_SOURCE: bgs
+          PAGES_BASE_URL: ${{ vars.PAGES_BASE_URL }}
+        run: |
+          export NUXT_APP_BASE_URL="${PAGES_BASE_URL:-/${GITHUB_REPOSITORY#*/}/}"
+          echo "Base URL: $NUXT_APP_BASE_URL"
+          pnpm generate
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: chart-ui/.output/public
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v5
+        id: deployment

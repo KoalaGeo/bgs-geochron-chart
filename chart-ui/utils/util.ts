@@ -26,7 +26,28 @@ export type chartNode = {
     remainderHeigt: number
     irregularHeight: number
     rawPercent: number
+    /** BGS chart: which values fell back to ICS (e.g. "colour"); empty otherwise. */
+    fallback?: string
     [key: string]: any
+}
+
+/** A BGS regional unit or Marine Isotope Stage, drawn in the extra columns. */
+export type RegionalUnit = {
+    id: string
+    label: string
+    shortLabel: string
+    begin: number
+    end: number
+    color: string
+    inferred: boolean
+}
+export type RegionalColumn = {
+    id: string
+    label: string
+    scheme: string
+    schemeLabel: string
+    order: number
+    units: RegionalUnit[]
 }
 type chartLanguage = {
     language: string
