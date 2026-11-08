@@ -12,6 +12,7 @@ import n3 from "n3";
 
 const { namedNode } = n3.DataFactory;
 const config = useChartConfig();
+const base = useRuntimeConfig().app.baseURL;
 const emit = defineEmits(["openLexiconAge"]);
 
 const NS = {
@@ -327,6 +328,13 @@ const downloadPdf = () => {
     <div class="grid-5 only-print" v-if="meta">
       <div class="cell" style="--_col-span: 1; --_row-span: 2">
         <img v-if="config.icsBranding" src="/IUGSLOGOright.gif" />
+        <img
+          v-else
+          :src="`${base}images/bgs/BGS-Logo-Pos-RGB.svg`"
+          alt="British Geological Survey"
+          width="153"
+          height="64"
+        />
       </div>
       <div class="cell" style="--_col-span: 3; --_row-span: 1">
         <h1>{{ chartTitle }}</h1>

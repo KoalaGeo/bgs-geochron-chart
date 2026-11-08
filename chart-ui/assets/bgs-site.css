@@ -1,19 +1,40 @@
 /* BGS Geochronology, Lexicon & Rock Classification Scheme shared styles.
  * Scoped to .bgs-shell / .bgs-view so chart cell colours and A3 print layouts stay untouched. */
 
+/* BGS web palette and typeface, from the BGS www-apps template
+ * (resources/css/main.css and head.htm). Declared on :root so content
+ * teleported outside .bgs-shell (the chart pop-up) can use them too. */
+:root {
+  --bgs-blue: #003042;      /* rgb(0,48,66) */
+  --bgs-white: #ffffff;
+  --bgs-black: #000000;
+  --bgs-lt-gray: #f6f6f5;   /* rgb(246,246,245) */
+  --bgs-dk-gray: #333333;   /* rgb(51,51,51) */
+  --bgs-highlight: #66828c; /* rgb(102,130,140) */
+  --bgs-ochre: #ad9c71;     /* rgb(173,156,113) */
+  --bgs-lt-ochre: #cec4a9;  /* rgb(206,196,169) */
+  --bgs-font: aileron, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --bgs-max-width: 1140px;
+}
+
 .bgs-shell {
-  --bg: #f4f6f5;
-  --surface: #ffffff;
-  --surface-2: #eef2f2;
-  --ink: #17252d;
-  --muted: #5a6a73;
-  --line: #d9e0e2;
-  --brand: #00394d;
-  --brand-2: #0b5c73;
-  --brand-ink: #ffffff;
-  --link: #005b80;
-  --link-hover: #00394d;
-  --focus: #f2a900;
+  --bg: var(--bgs-white);
+  --surface: var(--bgs-white);
+  --surface-2: var(--bgs-lt-gray);
+  --ink: var(--bgs-black);
+  --heading: var(--bgs-blue);
+  /* Highlight (#66828c) is only 4.1:1 on white, so secondary text uses dark grey. */
+  --muted: var(--bgs-dk-gray);
+  --line: var(--bgs-lt-ochre);
+  /* Form controls need a 3:1 boundary; lt-ochre and ochre fall short. */
+  --control-line: var(--bgs-highlight);
+  --brand: var(--bgs-blue);
+  --brand-2: var(--bgs-blue);
+  --brand-ink: var(--bgs-white);
+  --accent: var(--bgs-ochre);
+  --link: var(--bgs-blue);
+  --link-hover: var(--bgs-blue);
+  --focus: var(--bgs-blue);
   --ok-bg: #e3f3ea;
   --ok-ink: #1d6b3f;
   --warn-bg: #fdf1d8;
@@ -22,7 +43,7 @@
   --bad-ink: #9a2c1c;
   --radius: 10px;
   --shadow: 0 1px 2px rgb(16 36 46 / 6%), 0 2px 8px rgb(16 36 46 / 5%);
-  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font: var(--bgs-font);
   --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
   min-height: 100vh;
   display: flex;
@@ -43,6 +64,8 @@
 
 .bgs-view a:hover {
   color: var(--link-hover);
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
 }
 
 .bgs-view :focus-visible {
@@ -62,6 +85,7 @@
 .bgs-view h3 {
   line-height: 1.2;
   margin: 0 0 0.5em;
+  color: var(--heading);
 }
 
 .bgs-view h1 {
@@ -90,7 +114,7 @@
 }
 
 .bgs-wrap {
-  max-width: 1280px;
+  max-width: var(--bgs-max-width);
   width: 100%;
   margin: 0 auto;
   padding: 24px 16px 48px;
@@ -471,7 +495,7 @@
   font-size: 0.92rem;
   color: var(--ink);
   background: var(--surface);
-  border: 1px solid var(--line);
+  border: 1px solid var(--control-line);
   border-radius: 8px;
   padding: 6px 10px;
   width: 100%;
@@ -482,7 +506,7 @@
 .bgs-view select:focus {
   border-color: var(--link);
   outline: none;
-  box-shadow: 0 0 0 3px rgb(0 91 128 / 18%);
+  box-shadow: 0 0 0 3px rgb(0 48 66 / 20%);
 }
 
 .bgs-view .btn {
@@ -503,20 +527,24 @@
   gap: 6px;
 }
 
+/* Hover mirrors the BGS header nav: an ochre underline. White text on the
+ * template's highlight or ochre fills would fail WCAG AA contrast. */
 .bgs-view .btn:hover {
   background: var(--brand);
   color: #fff;
+  box-shadow: inset 0 -3px 0 var(--accent);
 }
 
 .bgs-view .btn-ghost {
   background: transparent;
   color: var(--link);
-  border-color: var(--line);
+  border-color: var(--control-line);
 }
 
 .bgs-view .btn-ghost:hover {
   background: var(--surface-2);
   color: var(--link-hover);
+  box-shadow: inset 0 -3px 0 var(--accent);
 }
 
 .bgs-view .result-bar {
@@ -795,4 +823,25 @@
 
 .bgs-view .caveat[open] summary {
   margin-bottom: 8px;
+}
+
+/* Chart pop-up (InfoBox). It is teleported to <body>, outside .bgs-shell,
+ * so it uses the :root palette. The default #0000EE link blue is off-brand. */
+.lightbox .info-box .linked-periods,
+.lightbox .info-box a {
+  color: var(--bgs-blue);
+}
+
+.lightbox .info-box .linked-periods li:hover,
+.lightbox .info-box a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--bgs-ochre);
+  text-decoration-thickness: 2px;
+}
+
+/* BGS typeface for the chart itself: cell labels, ages, controls and the
+ * pop-up. DynamicChart.vue sets body { font-family: Palatino } for the ICS
+ * chart; this outranks it, and this file is only loaded in the BGS build. */
+html body {
+  font-family: var(--bgs-font);
 }

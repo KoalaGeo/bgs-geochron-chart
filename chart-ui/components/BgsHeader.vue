@@ -12,7 +12,9 @@ const emit = defineEmits<{
   (e: 'selectTab', tab: BgsTab): void
 }>()
 
-const base = useRuntimeConfig().app.baseURL
+const config = useRuntimeConfig()
+const base = config.app.baseURL
+const siteName = config.public.siteName as string
 const { ensureAboutLoaded, vocabFileUrl } = useBgsVocabs()
 
 onMounted(() => {
@@ -31,16 +33,28 @@ const tabs: { id: BgsTab; label: string; href: string }[] = [
 <template>
   <div class="bgs-header-wrapper no-print">
     <a class="bgs-skip-link" href="#main-content">Skip to main content</a>
-    <header class="bgs-topbar">
-      <div class="bgs-topbar-inner">
-        <a class="bgs-brand" :href="base" @click.prevent="emit('selectTab', 'geochron')">
-          <span class="bgs-brand-mark" aria-hidden="true"></span>
-          <span class="bgs-brand-text">
-            <span class="bgs-brand-org">British Geological Survey</span>
-            <span class="bgs-brand-name">Geochronology, Lexicon &amp; Rock Classification</span>
-          </span>
+    <!-- Layout follows the BGS www-apps header include: corporate links strip,
+         logo band, then breadcrumbs. The BGS mega-menu (nav.htm + jQuery) is
+         replaced by this site's own sections. -->
+    <header class="bgs-masthead">
+      <div class="bgs-topnav">
+        <nav class="bgs-topnav-inner" aria-label="British Geological Survey">
+          <a href="https://www.bgs.ac.uk/news/">News &amp; Events</a>
+          <a href="https://shop.bgs.ac.uk/Shop">BGS Shop</a>
+          <a href="https://www.bgs.ac.uk/hosted-websites/">Hosted sites</a>
+        </nav>
+      </div>
+
+      <div class="bgs-logonav">
+        <a class="bgs-logo" href="https://www.bgs.ac.uk/">
+          <img
+            :src="`${base}images/bgs/BGS-Logo-Pos-RGB.svg`"
+            alt="British Geological Survey home"
+            width="122"
+            height="51"
+          >
         </a>
-        <nav class="bgs-site-nav" aria-label="BGS vocabulary tools">
+        <nav class="bgs-site-nav" :aria-label="siteName">
           <a
             v-for="t in tabs"
             :key="t.id"
@@ -50,6 +64,14 @@ const tabs: { id: BgsTab; label: string; href: string }[] = [
           >
             {{ t.label }}
           </a>
+        </nav>
+      </div>
+
+      <div class="bgs-breadcrumbs">
+        <nav class="bgs-breadcrumbs-inner" aria-label="Site breadcrumb">
+          <a href="https://www.bgs.ac.uk/">Home</a>
+          <span class="bgs-crumb-sep" aria-hidden="true"></span>
+          <a :href="base" @click.prevent="emit('selectTab', 'geochron')">{{ siteName }}</a>
         </nav>
       </div>
     </header>
@@ -77,104 +99,161 @@ const tabs: { id: BgsTab; label: string; href: string }[] = [
 
 <style scoped>
 .bgs-header-wrapper {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--bgs-font);
+  color: var(--bgs-blue);
 }
 
-.bgs-topbar {
-  background: #00394d;
-  color: #ffffff;
+.bgs-header-wrapper a:focus-visible {
+  outline: 3px solid var(--bgs-blue);
+  outline-offset: 2px;
 }
 
-.bgs-topbar-inner {
-  max-width: 1280px;
+/* Corporate links strip (header.htm section.topnav) */
+.bgs-topnav {
+  background: var(--bgs-blue);
+  color: var(--bgs-white);
+}
+
+.bgs-topnav-inner {
+  max-width: var(--bgs-max-width);
   margin: 0 auto;
-  padding: 12px 16px;
+  padding: 0 24px 0 16px;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.bgs-topnav-inner a {
+  color: var(--bgs-white);
+  text-decoration: none;
+  padding: 11px 16px 10px;
+  border-left: 1px solid var(--bgs-white);
+}
+
+.bgs-topnav-inner a:last-child {
+  border-right: 1px solid var(--bgs-white);
+}
+
+.bgs-topnav-inner a:hover {
+  background: var(--bgs-highlight);
+}
+
+.bgs-topnav-inner a:focus-visible {
+  outline-color: var(--bgs-lt-ochre);
+  outline-offset: -3px;
+}
+
+@media (max-width: 576px) {
+  .bgs-topnav-inner {
+    padding: 0;
+    justify-content: center;
+  }
+
+  .bgs-topnav-inner a {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+}
+
+/* Logo band (section.logonav) */
+.bgs-logonav {
+  max-width: var(--bgs-max-width);
+  min-height: 80px;
+  margin: 0 auto;
+  padding: 5px 16px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px 28px;
+  gap: 0 24px;
+  background: var(--bgs-white);
 }
 
-.bgs-brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: inherit;
-  text-decoration: none;
-}
-
-.bgs-brand-mark {
-  width: 34px;
-  height: 34px;
-  border-radius: 7px;
+.bgs-logo {
   flex: none;
-  background: linear-gradient(
-    180deg,
-    #9ad1d4 0 22%,
-    #f2c14e 22% 40%,
-    #c9744d 40% 58%,
-    #7a8b99 58% 78%,
-    #3d5a6c 78% 100%
-  );
-  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 25%);
+  display: block;
 }
 
-.bgs-brand-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.15;
-}
-
-.bgs-brand-org {
-  font-size: 0.75rem;
-  opacity: 0.82;
-  letter-spacing: 0.02em;
-}
-
-.bgs-brand-name {
-  font-weight: 650;
-  font-size: 1.05rem;
+.bgs-logo img {
+  display: block;
+  height: 51px;
+  width: auto;
+  margin: 10px 0;
 }
 
 .bgs-site-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
   margin-left: auto;
 }
 
+/* Nav links as in main.css article.nav: black text, ochre 3px underline. */
 .bgs-site-nav a {
-  color: #ffffff;
+  color: var(--bgs-black);
   text-decoration: none;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 0.94rem;
-  opacity: 0.9;
-  transition: background 0.15s, opacity 0.15s;
+  padding: 5px;
+  margin: 8px 10px;
+  border-bottom: 3px solid transparent;
 }
 
 .bgs-site-nav a:hover {
-  background: rgb(255 255 255 / 12%);
-  opacity: 1;
+  border-bottom-color: var(--bgs-ochre);
 }
 
 .bgs-site-nav a[aria-current="page"] {
-  background: rgb(255 255 255 / 20%);
-  opacity: 1;
-  font-weight: 600;
+  font-weight: 700;
+  border-bottom-color: var(--bgs-ochre);
 }
 
+/* Breadcrumbs band (section.breadcrumbs) */
+.bgs-breadcrumbs {
+  background: var(--bgs-lt-gray);
+  box-shadow: 0 -2px 4px 0 rgb(183 183 183 / 50%);
+  padding: 5px 16px;
+}
+
+/* Side padding lines the crumb text up with the logo above. */
+.bgs-breadcrumbs-inner {
+  max-width: var(--bgs-max-width);
+  margin: 0 auto;
+  padding: 0 11px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 14px;
+}
+
+.bgs-breadcrumbs-inner a {
+  color: var(--bgs-black);
+  text-decoration: none;
+  padding: 5px;
+}
+
+.bgs-breadcrumbs-inner a:hover {
+  text-decoration: underline;
+}
+
+.bgs-crumb-sep {
+  width: 7px;
+  height: 7px;
+  margin: 0 8px 0 4px;
+  border-top: 1.5px solid var(--bgs-blue);
+  border-right: 1.5px solid var(--bgs-blue);
+  transform: rotate(45deg);
+}
+
+/* Chart tab introduction */
 .bgs-chart-intro {
-  max-width: 1280px;
+  max-width: var(--bgs-max-width);
   margin: 0 auto;
   padding: 1.25rem 1rem 0.5rem;
-  color: #17252d;
+  color: var(--bgs-black);
 }
 
 .bgs-chart-intro h1 {
   margin: 0 0 0.5rem;
   font-size: 1.75rem;
-  font-weight: 650;
+  font-weight: 700;
+  color: var(--bgs-blue);
 }
 
 .bgs-chart-intro p {
@@ -184,7 +263,12 @@ const tabs: { id: BgsTab; label: string; href: string }[] = [
 }
 
 .bgs-chart-intro a {
-  color: #005b80;
+  color: var(--bgs-blue);
+}
+
+.bgs-chart-intro a:hover {
+  text-decoration-color: var(--bgs-ochre);
+  text-decoration-thickness: 2px;
 }
 
 .bgs-skip-link {
@@ -196,8 +280,8 @@ const tabs: { id: BgsTab; label: string; href: string }[] = [
   left: 1rem;
   top: 0.75rem;
   z-index: 100;
-  background: #ffffff;
-  color: #17252d;
+  background: var(--bgs-white);
+  color: var(--bgs-blue);
   padding: 0.5rem 0.75rem;
   border-radius: 4px;
 }
